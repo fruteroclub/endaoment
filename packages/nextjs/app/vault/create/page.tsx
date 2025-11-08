@@ -61,8 +61,8 @@ export default function CreateVaultPage() {
       setShowSuccess(true);
       setTxStatus("idle");
 
-      // Redirect after showing success
-      setTimeout(() => router.push("/dashboard"), 2000);
+      // Redirect to allocate page to vote for students
+      setTimeout(() => router.push("/allocate"), 2000);
     } catch (error) {
       console.error("Deposit failed:", error);
       setIsLoading(false);
@@ -82,7 +82,7 @@ export default function CreateVaultPage() {
             <div className="text-6xl mb-4">✅</div>
             <h2 className="card-title text-2xl mb-2">Deposit Successful!</h2>
             <p className="mb-2">You deposited ${deposit} USDC to the vault</p>
-            <p className="text-sm text-base-content/60">Redirecting to dashboard...</p>
+            <p className="text-sm text-base-content/60">Redirecting to allocate votes...</p>
           </div>
         </div>
       </div>

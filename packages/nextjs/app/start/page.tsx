@@ -61,8 +61,13 @@ export default function StartPage() {
               </div>
               <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-2">Student</h2>
               <p className="text-[16px] text-[#1A1A1A]/70 mb-6">Get funded, no repayment needed.</p>
-              <PrimaryButton variant="secondary" size="md" className="w-full" onClick={() => router.push("/")}>
-                Browse Students
+              <PrimaryButton
+                variant="secondary"
+                size="md"
+                className="w-full"
+                onClick={() => router.push("/student/dashboard")}
+              >
+                Student Dashboard
               </PrimaryButton>
             </div>
           </div>

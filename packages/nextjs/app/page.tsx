@@ -27,15 +27,8 @@ const Home: NextPage = () => {
 
       if (typeToUse === "student") {
         router.push("/student/dashboard");
-      } else if (typeToUse === "donor") {
-        // Scroll to students section
-        setTimeout(() => {
-          const studentsSection = document.getElementById("students-section");
-          if (studentsSection) {
-            studentsSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
       }
+      // Don't auto-redirect donors - let them choose to browse students or start donating
     }
   }, [isConnected, userType, router]);
 
@@ -121,16 +114,23 @@ const Home: NextPage = () => {
               </div>
             </div>
           ) : (
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col items-center gap-4">
               {userType === "student" ||
               (typeof window !== "undefined" && localStorage.getItem("userType") === "student") ? (
                 <Link href="/student/dashboard">
                   <PrimaryButton size="lg">Go to Student Dashboard</PrimaryButton>
                 </Link>
               ) : (
-                <a href="#students-section">
-                  <PrimaryButton size="lg">Browse Students</PrimaryButton>
-                </a>
+                <>
+                  <Link href="/start">
+                    <PrimaryButton size="lg">Start Donating</PrimaryButton>
+                  </Link>
+                  <a href="#students-section">
+                    <PrimaryButton variant="secondary" size="lg">
+                      Browse Students
+                    </PrimaryButton>
+                  </a>
+                </>
               )}
             </div>
           )}

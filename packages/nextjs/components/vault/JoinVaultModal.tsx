@@ -67,7 +67,8 @@ export function JoinVaultModal({ vault, onClose }: JoinVaultModalProps) {
       setIsLoading(false);
       setTxStatus("idle");
       onClose();
-      router.push("/dashboard");
+      // Redirect to allocate page to vote for students
+      router.push("/allocate");
     } catch (error) {
       console.error("Deposit failed:", error);
       setIsLoading(false);
