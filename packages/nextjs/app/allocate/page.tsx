@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CURRENT_EPOCH } from "~~/data/constants";
+import { MOCK_MEMBERSHIP, MOCK_VAULT } from "~~/data/mockVaults";
 import { STUDENTS } from "~~/data/students";
 
 export default function AllocatePage() {
@@ -17,6 +18,11 @@ export default function AllocatePage() {
   const totalYield = CURRENT_EPOCH.totalYield;
   const totalAllocated = Object.values(allocations).reduce((sum, pct) => sum + pct, 0);
   const remaining = 100 - totalAllocated;
+
+  // Calculate voting power from vault membership
+  const userShares = MOCK_MEMBERSHIP.shares;
+  const totalShares = MOCK_VAULT.totalCapital;
+  const votingPower = (userShares / totalShares) * 100;
 
   const handleSliderChange = (studentId: string, value: number) => {
     setAllocations(prev => {
@@ -85,6 +91,16 @@ export default function AllocatePage() {
       <p className="text-base-content/70 mb-6">
         You have ${totalYield.toLocaleString()} in yield to allocate to students.
       </p>
+
+      {/* Vault Context Banner */}
+      <div className="alert alert-info mb-6">
+        <div>
+          <div className="font-bold">💼 Allocating from: {MOCK_VAULT.name}</div>
+          <div className="text-sm">
+            Your voting power: {userShares} shares ({votingPower.toFixed(2)}%)
+          </div>
+        </div>
+      </div>
 
       {/* Progress */}
       <div className="card bg-base-100 shadow-xl mb-6">
