@@ -2,10 +2,13 @@ import { ethers, network } from "hardhat";
 
 /**
  * Helper script to mint test USDC to specific addresses
- * Usage: npx hardhat run scripts/mintTestUSDC.ts --network baseSepolia
+ * Usage: npx hardhat run scripts/mintTestUSDC.ts --network base
+ *
+ * Note: We use MockUSDC even on Base mainnet for demo purposes.
  */
 async function main() {
-  console.log(`\n💰 Minting test USDC on ${network.name}...`);
+  const networkName = network.name;
+  console.log(`\n💰 Minting test USDC on ${networkName}...`);
 
   try {
     const mockUSDC = await ethers.getContract("MockUSDC");

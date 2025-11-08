@@ -1,0 +1,20 @@
+{
+  "network": "base",
+  "chainId": 8453,
+  "timestamp": "2025-11-08T09:08:24.839Z",
+  "deployer": "0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205",
+  "contracts": {
+    "mockUSDC": "0xF275FB7aF26F08f5053611DAE56570304C4A22fF",
+    "studentRegistry": "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36",
+    "allocationManager": "0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a",
+    "vault": "0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09"
+  },
+  "vault": {
+    "name": "Endaoment Education Vault",
+    "symbol": "EDVAULT",
+    "whale": "0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205",
+    "asset": "0xF275FB7aF26F08f5053611DAE56570304C4A22fF",
+    "owner": "0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a"
+  },
+  "students": 8
+}

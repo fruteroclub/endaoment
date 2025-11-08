@@ -5,9 +5,9 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  31337: {
+  8453: {
     AllocationManager: {
-      address: "0x36C02dA8a0983159322a80FFE9F24b1acfF8B570",
+      address: "0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a",
       abi: [
         {
           inputs: [
@@ -620,10 +620,10 @@ const deployedContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
-      deployedOnBlock: 72,
+      deployedOnBlock: 37901739,
     },
     EndaomentVault: {
-      address: "0x4c5859f0F772848b2D91F1D83E2Fe57935348029",
+      address: "0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09",
       abi: [
         {
           inputs: [
@@ -1894,10 +1894,10 @@ const deployedContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
-      deployedOnBlock: 75,
+      deployedOnBlock: 37901748,
     },
     MockUSDC: {
-      address: "0x851356ae760d987E095750cCeb3bC6014560891C",
+      address: "0xF275FB7aF26F08f5053611DAE56570304C4A22fF",
       abi: [
         {
           inputs: [],
@@ -2397,10 +2397,10 @@ const deployedContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
-      deployedOnBlock: 58,
+      deployedOnBlock: 37901708,
     },
     StudentRegistry: {
-      address: "0x95401dc811bb5740090279Ba06cfA8fcF6113778",
+      address: "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36",
       abi: [
         {
           inputs: [],
@@ -2777,10 +2777,10 @@ const deployedContracts = {
         renounceOwnership: "@openzeppelin/contracts/access/Ownable.sol",
         transferOwnership: "@openzeppelin/contracts/access/Ownable.sol",
       },
-      deployedOnBlock: 62,
+      deployedOnBlock: 37901716,
     },
     YourContract: {
-      address: "0xf5059a5D33d5853360D16C683c16e67980206f36",
+      address: "0xfE0176a9324065357eE047aed98117700d55E993",
       abi: [
         {
           inputs: [
@@ -2921,7 +2921,7 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 60,
+      deployedOnBlock: 37901712,
     },
   },
   84532: {
