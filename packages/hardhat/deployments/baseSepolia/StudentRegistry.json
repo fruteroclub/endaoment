@@ -1,0 +1,682 @@
+{
+  "address": "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "FundingRecorded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "university",
+          "type": "string"
+        }
+      ],
+      "name": "StudentAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "StudentDeactivated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "StudentReactivated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "university",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "researchArea",
+          "type": "string"
+        }
+      ],
+      "name": "addStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "allocationManager",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "deactivateStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getActiveStudents",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllStudents",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getStudent",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "wallet",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "university",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "researchArea",
+              "type": "string"
+            },
+            {
+              "internalType": "bool",
+              "name": "isActive",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalReceived",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "addedAt",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IStudentRegistry.Student",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStudentCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "isStudentActive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "reactivateStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "recordFunding",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_allocationManager",
+          "type": "address"
+        }
+      ],
+      "name": "setAllocationManager",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xeb505546f56f8452c3e06e88ea62a429f6805200eab033227c0d58f278d7031b",
+  "receipt": {
+    "to": null,
+    "from": "0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205",
+    "contractAddress": "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36",
+    "transactionIndex": 12,
+    "gasUsed": "1191188",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000200001000000000000000000000000000000000000020000000000000000000800000000000000000000000000000000400000000000000000000000000000000000000000000000000000000010000400000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000020000000000000000000000000000000000000000",
+    "blockHash": "0x6aa399cb333f0450d2038f2136e502dd482bc3dab57df334890157ee4d593335",
+    "transactionHash": "0xeb505546f56f8452c3e06e88ea62a429f6805200eab033227c0d58f278d7031b",
+    "logs": [
+      {
+        "transactionIndex": 12,
+        "blockNumber": 33411030,
+        "transactionHash": "0xeb505546f56f8452c3e06e88ea62a429f6805200eab033227c0d58f278d7031b",
+        "address": "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000cd95569742ec931bb4879ccc7eaa9f5bd9d2e205"
+        ],
+        "data": "0x",
+        "logIndex": 28,
+        "blockHash": "0x6aa399cb333f0450d2038f2136e502dd482bc3dab57df334890157ee4d593335"
+      }
+    ],
+    "blockNumber": 33411030,
+    "cumulativeGasUsed": "3546799",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "bf361e05fc9a204f60cff3999de3d4d8",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"FundingRecorded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"university\",\"type\":\"string\"}],\"name\":\"StudentAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"StudentDeactivated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"StudentReactivated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"university\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"researchArea\",\"type\":\"string\"}],\"name\":\"addStudent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"allocationManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"deactivateStudent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getActiveStudents\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllStudents\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"getStudent\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"wallet\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"university\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"researchArea\",\"type\":\"string\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"totalReceived\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"addedAt\",\"type\":\"uint256\"}],\"internalType\":\"struct IStudentRegistry.Student\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStudentCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"isStudentActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"}],\"name\":\"reactivateStudent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"studentAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"recordFunding\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_allocationManager\",\"type\":\"address\"}],\"name\":\"setAllocationManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Only owner (admin) can add/deactivate students, AllocationManager records funding\",\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"addStudent(address,string,string,string)\":{\"params\":{\"name\":\"Student's full name\",\"researchArea\":\"Field of research\",\"studentAddress\":\"Student's wallet address\",\"university\":\"University or institution\"}},\"deactivateStudent(address)\":{\"params\":{\"studentAddress\":\"Student's wallet address\"}},\"getActiveStudents()\":{\"returns\":{\"_0\":\"Array of active student addresses\"}},\"getAllStudents()\":{\"returns\":{\"_0\":\"Array of all student addresses\"}},\"getStudent(address)\":{\"params\":{\"studentAddress\":\"Student's wallet address\"},\"returns\":{\"_0\":\"Student struct with all profile data\"}},\"getStudentCount()\":{\"returns\":{\"_0\":\"Number of students\"}},\"isStudentActive(address)\":{\"params\":{\"studentAddress\":\"Student's wallet address\"},\"returns\":{\"_0\":\"Boolean indicating if student is active\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"reactivateStudent(address)\":{\"params\":{\"studentAddress\":\"Student's wallet address\"}},\"recordFunding(address,uint256)\":{\"details\":\"Can only be called by AllocationManager during distribution\",\"params\":{\"amount\":\"Amount of USDC received\",\"studentAddress\":\"Student's wallet address\"}},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"setAllocationManager(address)\":{\"params\":{\"_allocationManager\":\"Address of AllocationManager contract\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"StudentRegistry\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addStudent(address,string,string,string)\":{\"notice\":\"Add a new student to the registry\"},\"constructor\":{\"notice\":\"Initialize StudentRegistry\"},\"deactivateStudent(address)\":{\"notice\":\"Deactivate a student (stop accepting funding)\"},\"getActiveStudents()\":{\"notice\":\"Get all active student addresses\"},\"getAllStudents()\":{\"notice\":\"Get all registered student addresses\"},\"getStudent(address)\":{\"notice\":\"Get student profile by address\"},\"getStudentCount()\":{\"notice\":\"Get total number of registered students\"},\"isStudentActive(address)\":{\"notice\":\"Check if a student is active\"},\"reactivateStudent(address)\":{\"notice\":\"Reactivate a deactivated student\"},\"recordFunding(address,uint256)\":{\"notice\":\"Record funding received by a student\"},\"setAllocationManager(address)\":{\"notice\":\"Set the AllocationManager contract address\"}},\"notice\":\"Manages verified student profiles for the Endaoment platform\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/StudentRegistry.sol\":\"StudentRegistry\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"contracts/StudentRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport \\\"./interfaces/IStudentRegistry.sol\\\";\\n\\n/**\\n * @title StudentRegistry\\n * @notice Manages verified student profiles for the Endaoment platform\\n * @dev Only owner (admin) can add/deactivate students, AllocationManager records funding\\n */\\ncontract StudentRegistry is IStudentRegistry, Ownable {\\n    // Student data mapping\\n    mapping(address => Student) private students;\\n\\n    // Array of all student addresses for enumeration\\n    address[] private studentAddresses;\\n\\n    // Mapping to check if address is registered\\n    mapping(address => bool) private isRegistered;\\n\\n    // AllocationManager address (can record funding)\\n    address public allocationManager;\\n\\n    /**\\n     * @notice Initialize StudentRegistry\\n     */\\n    constructor() Ownable(msg.sender) {}\\n\\n    /**\\n     * @notice Set the AllocationManager contract address\\n     * @param _allocationManager Address of AllocationManager contract\\n     */\\n    function setAllocationManager(address _allocationManager) external onlyOwner {\\n        require(_allocationManager != address(0), \\\"Invalid allocation manager address\\\");\\n        allocationManager = _allocationManager;\\n    }\\n\\n    /**\\n     * @notice Add a new student to the registry\\n     * @param studentAddress Student's wallet address\\n     * @param name Student's full name\\n     * @param university University or institution\\n     * @param researchArea Field of research\\n     */\\n    function addStudent(\\n        address studentAddress,\\n        string calldata name,\\n        string calldata university,\\n        string calldata researchArea\\n    ) external onlyOwner {\\n        require(studentAddress != address(0), \\\"Invalid student address\\\");\\n        require(!isRegistered[studentAddress], \\\"Student already registered\\\");\\n        require(bytes(name).length > 0, \\\"Name cannot be empty\\\");\\n        require(bytes(university).length > 0, \\\"University cannot be empty\\\");\\n        require(bytes(researchArea).length > 0, \\\"Research area cannot be empty\\\");\\n\\n        students[studentAddress] = Student({\\n            wallet: studentAddress,\\n            name: name,\\n            university: university,\\n            researchArea: researchArea,\\n            isActive: true,\\n            totalReceived: 0,\\n            addedAt: block.timestamp\\n        });\\n\\n        studentAddresses.push(studentAddress);\\n        isRegistered[studentAddress] = true;\\n\\n        emit StudentAdded(studentAddress, name, university);\\n    }\\n\\n    /**\\n     * @notice Get student profile by address\\n     * @param studentAddress Student's wallet address\\n     * @return Student struct with all profile data\\n     */\\n    function getStudent(address studentAddress) external view returns (Student memory) {\\n        require(isRegistered[studentAddress], \\\"Student not found\\\");\\n        return students[studentAddress];\\n    }\\n\\n    /**\\n     * @notice Get all registered student addresses\\n     * @return Array of all student addresses\\n     */\\n    function getAllStudents() external view returns (address[] memory) {\\n        return studentAddresses;\\n    }\\n\\n    /**\\n     * @notice Get all active student addresses\\n     * @return Array of active student addresses\\n     */\\n    function getActiveStudents() external view returns (address[] memory) {\\n        uint256 activeCount = 0;\\n\\n        // Count active students\\n        for (uint256 i = 0; i < studentAddresses.length; i++) {\\n            if (students[studentAddresses[i]].isActive) {\\n                activeCount++;\\n            }\\n        }\\n\\n        // Build array of active students\\n        address[] memory activeStudents = new address[](activeCount);\\n        uint256 currentIndex = 0;\\n\\n        for (uint256 i = 0; i < studentAddresses.length; i++) {\\n            if (students[studentAddresses[i]].isActive) {\\n                activeStudents[currentIndex] = studentAddresses[i];\\n                currentIndex++;\\n            }\\n        }\\n\\n        return activeStudents;\\n    }\\n\\n    /**\\n     * @notice Deactivate a student (stop accepting funding)\\n     * @param studentAddress Student's wallet address\\n     */\\n    function deactivateStudent(address studentAddress) external onlyOwner {\\n        require(isRegistered[studentAddress], \\\"Student not found\\\");\\n        require(students[studentAddress].isActive, \\\"Student already inactive\\\");\\n\\n        students[studentAddress].isActive = false;\\n\\n        emit StudentDeactivated(studentAddress);\\n    }\\n\\n    /**\\n     * @notice Reactivate a deactivated student\\n     * @param studentAddress Student's wallet address\\n     */\\n    function reactivateStudent(address studentAddress) external onlyOwner {\\n        require(isRegistered[studentAddress], \\\"Student not found\\\");\\n        require(!students[studentAddress].isActive, \\\"Student already active\\\");\\n\\n        students[studentAddress].isActive = true;\\n\\n        emit StudentReactivated(studentAddress);\\n    }\\n\\n    /**\\n     * @notice Record funding received by a student\\n     * @dev Can only be called by AllocationManager during distribution\\n     * @param studentAddress Student's wallet address\\n     * @param amount Amount of USDC received\\n     */\\n    function recordFunding(address studentAddress, uint256 amount) external {\\n        require(msg.sender == allocationManager, \\\"Only AllocationManager can record funding\\\");\\n        require(isRegistered[studentAddress], \\\"Student not found\\\");\\n\\n        students[studentAddress].totalReceived += amount;\\n\\n        emit FundingRecorded(studentAddress, amount);\\n    }\\n\\n    /**\\n     * @notice Check if a student is active\\n     * @param studentAddress Student's wallet address\\n     * @return Boolean indicating if student is active\\n     */\\n    function isStudentActive(address studentAddress) external view returns (bool) {\\n        if (!isRegistered[studentAddress]) {\\n            return false;\\n        }\\n        return students[studentAddress].isActive;\\n    }\\n\\n    /**\\n     * @notice Get total number of registered students\\n     * @return Number of students\\n     */\\n    function getStudentCount() external view returns (uint256) {\\n        return studentAddresses.length;\\n    }\\n}\\n\",\"keccak256\":\"0x21e4fde39cb7c92bf17b1c754ac9474e9b5468d15fc8066f97e73d4b63a8a4a6\",\"license\":\"MIT\"},\"contracts/interfaces/IStudentRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\n/**\\n * @title IStudentRegistry\\n * @notice Interface for the StudentRegistry contract\\n */\\ninterface IStudentRegistry {\\n    /**\\n     * @notice Student profile struct\\n     * @param wallet Student's wallet address\\n     * @param name Student's full name\\n     * @param university University or institution name\\n     * @param researchArea Field of research\\n     * @param isActive Whether student is actively accepting funding\\n     * @param totalReceived Total USDC received across all distributions\\n     * @param addedAt Timestamp when student was added\\n     */\\n    struct Student {\\n        address wallet;\\n        string name;\\n        string university;\\n        string researchArea;\\n        bool isActive;\\n        uint256 totalReceived;\\n        uint256 addedAt;\\n    }\\n\\n    // Events\\n    event StudentAdded(address indexed studentAddress, string name, string university);\\n    event StudentDeactivated(address indexed studentAddress);\\n    event StudentReactivated(address indexed studentAddress);\\n    event FundingRecorded(address indexed studentAddress, uint256 amount);\\n\\n    // Functions\\n    function addStudent(\\n        address studentAddress,\\n        string calldata name,\\n        string calldata university,\\n        string calldata researchArea\\n    ) external;\\n\\n    function getStudent(address studentAddress) external view returns (Student memory);\\n\\n    function getAllStudents() external view returns (address[] memory);\\n\\n    function getActiveStudents() external view returns (address[] memory);\\n\\n    function deactivateStudent(address studentAddress) external;\\n\\n    function reactivateStudent(address studentAddress) external;\\n\\n    function recordFunding(address studentAddress, uint256 amount) external;\\n\\n    function isStudentActive(address studentAddress) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xd5118b99c9890d1dafd1bf3dfc0d39c87fb3276c382ed310aa376b56f56a0869\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50338061003757604051631e4fbdf760e01b81526000600482015260240160405180910390fd5b61004081610046565b50610096565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b61141d806100a56000396000f3fe608060405234801561001057600080fd5b50600436106100ea5760003560e01c80637be262771161008c578063cf9f499911610066578063cf9f4999146101d8578063e1b042c6146101eb578063e9e30927146101fe578063f2fde38b1461020657600080fd5b80637be262771461018b5780638da5cb5b146101a0578063ca8aa7c7146101c557600080fd5b806341e0c407116100c857806341e0c4071461013f5780636b7b44d714610150578063715018a6146101705780637bd24ed81461017857600080fd5b8063095f7b89146100ef5780630a703136146101175780631c45edfc1461012c575b600080fd5b6101026100fd366004610f39565b610219565b60405190151581526020015b60405180910390f35b61012a610125366004610f39565b610263565b005b61012a61013a366004610f39565b6102f3565b60025460405190815260200161010e565b61016361015e366004610f39565b6103ea565b60405161010e9190610fa1565b61012a61067f565b61012a610186366004611039565b610693565b6101936107a9565b60405161010e9190611063565b6000546001600160a01b03165b6040516001600160a01b03909116815260200161010e565b6004546101ad906001600160a01b031681565b61012a6101e63660046110f9565b610941565b61012a6101f9366004610f39565b610d09565b610193610e00565b61012a610214366004610f39565b610e62565b6001600160a01b03811660009081526003602052604081205460ff1661024157506000919050565b506001600160a01b031660009081526001602052604090206004015460ff1690565b61026b610ea0565b6001600160a01b0381166102d15760405162461bcd60e51b815260206004820152602260248201527f496e76616c696420616c6c6f636174696f6e206d616e61676572206164647265604482015261737360f01b60648201526084015b60405180910390fd5b600480546001600160a01b0319166001600160a01b0392909216919091179055565b6102fb610ea0565b6001600160a01b03811660009081526003602052604090205460ff166103335760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03811660009081526001602052604090206004015460ff1661039e5760405162461bcd60e51b815260206004820152601860248201527f53747564656e7420616c726561647920696e616374697665000000000000000060448201526064016102c8565b6001600160a01b038116600081815260016020526040808220600401805460ff19169055517f962ba8a33dd1e010f48a7eb857f8371cdde7c5d0bc98681d1f63261c2cd8c8949190a250565b6104356040518060e0016040528060006001600160a01b0316815260200160608152602001606081526020016060815260200160001515815260200160008152602001600081525090565b6001600160a01b03821660009081526003602052604090205460ff1661046d5760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03808316600090815260016020818152604092839020835160e08101909452805490941683529083018054929392918401916104af906111cf565b80601f01602080910402602001604051908101604052809291908181526020018280546104db906111cf565b80156105285780601f106104fd57610100808354040283529160200191610528565b820191906000526020600020905b81548152906001019060200180831161050b57829003601f168201915b50505050508152602001600282018054610541906111cf565b80601f016020809104026020016040519081016040528092919081815260200182805461056d906111cf565b80156105ba5780601f1061058f576101008083540402835291602001916105ba565b820191906000526020600020905b81548152906001019060200180831161059d57829003601f168201915b505050505081526020016003820180546105d3906111cf565b80601f01602080910402602001604051908101604052809291908181526020018280546105ff906111cf565b801561064c5780601f106106215761010080835404028352916020019161064c565b820191906000526020600020905b81548152906001019060200180831161062f57829003601f168201915b5050509183525050600482015460ff16151560208201526005820154604082015260069091015460609091015292915050565b610687610ea0565b6106916000610ecd565b565b6004546001600160a01b031633146106ff5760405162461bcd60e51b815260206004820152602960248201527f4f6e6c7920416c6c6f636174696f6e4d616e616765722063616e207265636f72604482015268642066756e64696e6760b81b60648201526084016102c8565b6001600160a01b03821660009081526003602052604090205460ff166107375760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b0382166000908152600160205260408120600501805483929061076290849061121f565b90915550506040518181526001600160a01b038316907f863dfe2219463edb84cb5f3410fe5cbeaad169d274e54acbf5d957955930a0629060200160405180910390a25050565b60606000805b6002548110156108205760016000600283815481106107d0576107d0611238565b60009182526020808320909101546001600160a01b0316835282019290925260400190206004015460ff161561080e578161080a8161124e565b9250505b806108188161124e565b9150506107af565b5060008167ffffffffffffffff81111561083c5761083c611267565b604051908082528060200260200182016040528015610865578160200160208202803683370190505b5090506000805b60025481101561093857600160006002838154811061088d5761088d611238565b60009182526020808320909101546001600160a01b0316835282019290925260400190206004015460ff161561092657600281815481106108d0576108d0611238565b9060005260206000200160009054906101000a90046001600160a01b031683838151811061090057610900611238565b6001600160a01b0390921660209283029190910190910152816109228161124e565b9250505b806109308161124e565b91505061086c565b50909392505050565b610949610ea0565b6001600160a01b03871661099f5760405162461bcd60e51b815260206004820152601760248201527f496e76616c69642073747564656e74206164647265737300000000000000000060448201526064016102c8565b6001600160a01b03871660009081526003602052604090205460ff1615610a085760405162461bcd60e51b815260206004820152601a60248201527f53747564656e7420616c7265616479207265676973746572656400000000000060448201526064016102c8565b84610a4c5760405162461bcd60e51b81526020600482015260146024820152734e616d652063616e6e6f7420626520656d70747960601b60448201526064016102c8565b82610a995760405162461bcd60e51b815260206004820152601a60248201527f556e69766572736974792063616e6e6f7420626520656d70747900000000000060448201526064016102c8565b80610ae65760405162461bcd60e51b815260206004820152601d60248201527f526573656172636820617265612063616e6e6f7420626520656d70747900000060448201526064016102c8565b6040518060e00160405280886001600160a01b0316815260200187878080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250505090825250604080516020601f880181900481028201810190925286815291810191908790879081908401838280828437600092019190915250505090825250604080516020601f86018190048102820181019092528481529181019190859085908190840183828082843760009201829052509385525050600160208085018290526040808601859052426060909601959095526001600160a01b038d8116855282825294909320855181546001600160a01b03191695169490941784559184015191830191610c069150826112cc565b5060408201516002820190610c1b90826112cc565b5060608201516003820190610c3090826112cc565b50608082015160048201805491151560ff1992831617905560a0830151600583015560c0909201516006909101556002805460018181019092557f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace0180546001600160a01b038b166001600160a01b03199091168117909155600081815260036020526040908190208054909416909217909255517ff483bf0ff5bb9af8263df65c6f48b46ea4251984650c8363b4e998616f83524490610cf89089908990899089906113b5565b60405180910390a250505050505050565b610d11610ea0565b6001600160a01b03811660009081526003602052604090205460ff16610d495760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03811660009081526001602052604090206004015460ff1615610dae5760405162461bcd60e51b815260206004820152601660248201527553747564656e7420616c72656164792061637469766560501b60448201526064016102c8565b6001600160a01b0381166000818152600160208190526040808320600401805460ff1916909217909155517fffae4902c5def599b7a72f08bceef6cb94b655346104ca5f353dd5819a6ae7499190a250565b60606002805480602002602001604051908101604052809291908181526020018280548015610e5857602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610e3a575b5050505050905090565b610e6a610ea0565b6001600160a01b038116610e9457604051631e4fbdf760e01b8152600060048201526024016102c8565b610e9d81610ecd565b50565b6000546001600160a01b031633146106915760405163118cdaa760e01b81523360048201526024016102c8565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b0381168114610f3457600080fd5b919050565b600060208284031215610f4b57600080fd5b610f5482610f1d565b9392505050565b6000815180845260005b81811015610f8157602081850181015186830182015201610f65565b506000602082860101526020601f19601f83011685010191505092915050565b602080825282516001600160a01b03168282015282015160e06040830152600090610fd0610100840182610f5b565b90506040840151601f1980858403016060860152610fee8383610f5b565b925060608601519150808584030160808601525061100c8282610f5b565b9150506080840151151560a084015260a084015160c084015260c084015160e08401528091505092915050565b6000806040838503121561104c57600080fd5b61105583610f1d565b946020939093013593505050565b6020808252825182820181905260009190848201906040850190845b818110156110a45783516001600160a01b03168352928401929184019160010161107f565b50909695505050505050565b60008083601f8401126110c257600080fd5b50813567ffffffffffffffff8111156110da57600080fd5b6020830191508360208285010111156110f257600080fd5b9250929050565b60008060008060008060006080888a03121561111457600080fd5b61111d88610f1d565b9650602088013567ffffffffffffffff8082111561113a57600080fd5b6111468b838c016110b0565b909850965060408a013591508082111561115f57600080fd5b61116b8b838c016110b0565b909650945060608a013591508082111561118457600080fd5b506111918a828b016110b0565b989b979a50959850939692959293505050565b60208082526011908201527014dd1d59195b9d081b9bdd08199bdd5b99607a1b604082015260600190565b600181811c908216806111e357607f821691505b60208210810361120357634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b8082018082111561123257611232611209565b92915050565b634e487b7160e01b600052603260045260246000fd5b60006001820161126057611260611209565b5060010190565b634e487b7160e01b600052604160045260246000fd5b601f8211156112c757600081815260208120601f850160051c810160208610156112a45750805b601f850160051c820191505b818110156112c3578281556001016112b0565b5050505b505050565b815167ffffffffffffffff8111156112e6576112e6611267565b6112fa816112f484546111cf565b8461127d565b602080601f83116001811461132f57600084156113175750858301515b600019600386901b1c1916600185901b1785556112c3565b600085815260208120601f198616915b8281101561135e5788860151825594840194600190910190840161133f565b508582101561137c5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6040815260006113c960408301868861138c565b82810360208401526113dc81858761138c565b97965050505050505056fea2646970667358221220bb85ca3e762c556c50f822b265a49783db96fe25627c0ebbe538e52cc46b905064736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100ea5760003560e01c80637be262771161008c578063cf9f499911610066578063cf9f4999146101d8578063e1b042c6146101eb578063e9e30927146101fe578063f2fde38b1461020657600080fd5b80637be262771461018b5780638da5cb5b146101a0578063ca8aa7c7146101c557600080fd5b806341e0c407116100c857806341e0c4071461013f5780636b7b44d714610150578063715018a6146101705780637bd24ed81461017857600080fd5b8063095f7b89146100ef5780630a703136146101175780631c45edfc1461012c575b600080fd5b6101026100fd366004610f39565b610219565b60405190151581526020015b60405180910390f35b61012a610125366004610f39565b610263565b005b61012a61013a366004610f39565b6102f3565b60025460405190815260200161010e565b61016361015e366004610f39565b6103ea565b60405161010e9190610fa1565b61012a61067f565b61012a610186366004611039565b610693565b6101936107a9565b60405161010e9190611063565b6000546001600160a01b03165b6040516001600160a01b03909116815260200161010e565b6004546101ad906001600160a01b031681565b61012a6101e63660046110f9565b610941565b61012a6101f9366004610f39565b610d09565b610193610e00565b61012a610214366004610f39565b610e62565b6001600160a01b03811660009081526003602052604081205460ff1661024157506000919050565b506001600160a01b031660009081526001602052604090206004015460ff1690565b61026b610ea0565b6001600160a01b0381166102d15760405162461bcd60e51b815260206004820152602260248201527f496e76616c696420616c6c6f636174696f6e206d616e61676572206164647265604482015261737360f01b60648201526084015b60405180910390fd5b600480546001600160a01b0319166001600160a01b0392909216919091179055565b6102fb610ea0565b6001600160a01b03811660009081526003602052604090205460ff166103335760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03811660009081526001602052604090206004015460ff1661039e5760405162461bcd60e51b815260206004820152601860248201527f53747564656e7420616c726561647920696e616374697665000000000000000060448201526064016102c8565b6001600160a01b038116600081815260016020526040808220600401805460ff19169055517f962ba8a33dd1e010f48a7eb857f8371cdde7c5d0bc98681d1f63261c2cd8c8949190a250565b6104356040518060e0016040528060006001600160a01b0316815260200160608152602001606081526020016060815260200160001515815260200160008152602001600081525090565b6001600160a01b03821660009081526003602052604090205460ff1661046d5760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03808316600090815260016020818152604092839020835160e08101909452805490941683529083018054929392918401916104af906111cf565b80601f01602080910402602001604051908101604052809291908181526020018280546104db906111cf565b80156105285780601f106104fd57610100808354040283529160200191610528565b820191906000526020600020905b81548152906001019060200180831161050b57829003601f168201915b50505050508152602001600282018054610541906111cf565b80601f016020809104026020016040519081016040528092919081815260200182805461056d906111cf565b80156105ba5780601f1061058f576101008083540402835291602001916105ba565b820191906000526020600020905b81548152906001019060200180831161059d57829003601f168201915b505050505081526020016003820180546105d3906111cf565b80601f01602080910402602001604051908101604052809291908181526020018280546105ff906111cf565b801561064c5780601f106106215761010080835404028352916020019161064c565b820191906000526020600020905b81548152906001019060200180831161062f57829003601f168201915b5050509183525050600482015460ff16151560208201526005820154604082015260069091015460609091015292915050565b610687610ea0565b6106916000610ecd565b565b6004546001600160a01b031633146106ff5760405162461bcd60e51b815260206004820152602960248201527f4f6e6c7920416c6c6f636174696f6e4d616e616765722063616e207265636f72604482015268642066756e64696e6760b81b60648201526084016102c8565b6001600160a01b03821660009081526003602052604090205460ff166107375760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b0382166000908152600160205260408120600501805483929061076290849061121f565b90915550506040518181526001600160a01b038316907f863dfe2219463edb84cb5f3410fe5cbeaad169d274e54acbf5d957955930a0629060200160405180910390a25050565b60606000805b6002548110156108205760016000600283815481106107d0576107d0611238565b60009182526020808320909101546001600160a01b0316835282019290925260400190206004015460ff161561080e578161080a8161124e565b9250505b806108188161124e565b9150506107af565b5060008167ffffffffffffffff81111561083c5761083c611267565b604051908082528060200260200182016040528015610865578160200160208202803683370190505b5090506000805b60025481101561093857600160006002838154811061088d5761088d611238565b60009182526020808320909101546001600160a01b0316835282019290925260400190206004015460ff161561092657600281815481106108d0576108d0611238565b9060005260206000200160009054906101000a90046001600160a01b031683838151811061090057610900611238565b6001600160a01b0390921660209283029190910190910152816109228161124e565b9250505b806109308161124e565b91505061086c565b50909392505050565b610949610ea0565b6001600160a01b03871661099f5760405162461bcd60e51b815260206004820152601760248201527f496e76616c69642073747564656e74206164647265737300000000000000000060448201526064016102c8565b6001600160a01b03871660009081526003602052604090205460ff1615610a085760405162461bcd60e51b815260206004820152601a60248201527f53747564656e7420616c7265616479207265676973746572656400000000000060448201526064016102c8565b84610a4c5760405162461bcd60e51b81526020600482015260146024820152734e616d652063616e6e6f7420626520656d70747960601b60448201526064016102c8565b82610a995760405162461bcd60e51b815260206004820152601a60248201527f556e69766572736974792063616e6e6f7420626520656d70747900000000000060448201526064016102c8565b80610ae65760405162461bcd60e51b815260206004820152601d60248201527f526573656172636820617265612063616e6e6f7420626520656d70747900000060448201526064016102c8565b6040518060e00160405280886001600160a01b0316815260200187878080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250505090825250604080516020601f880181900481028201810190925286815291810191908790879081908401838280828437600092019190915250505090825250604080516020601f86018190048102820181019092528481529181019190859085908190840183828082843760009201829052509385525050600160208085018290526040808601859052426060909601959095526001600160a01b038d8116855282825294909320855181546001600160a01b03191695169490941784559184015191830191610c069150826112cc565b5060408201516002820190610c1b90826112cc565b5060608201516003820190610c3090826112cc565b50608082015160048201805491151560ff1992831617905560a0830151600583015560c0909201516006909101556002805460018181019092557f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace0180546001600160a01b038b166001600160a01b03199091168117909155600081815260036020526040908190208054909416909217909255517ff483bf0ff5bb9af8263df65c6f48b46ea4251984650c8363b4e998616f83524490610cf89089908990899089906113b5565b60405180910390a250505050505050565b610d11610ea0565b6001600160a01b03811660009081526003602052604090205460ff16610d495760405162461bcd60e51b81526004016102c8906111a4565b6001600160a01b03811660009081526001602052604090206004015460ff1615610dae5760405162461bcd60e51b815260206004820152601660248201527553747564656e7420616c72656164792061637469766560501b60448201526064016102c8565b6001600160a01b0381166000818152600160208190526040808320600401805460ff1916909217909155517fffae4902c5def599b7a72f08bceef6cb94b655346104ca5f353dd5819a6ae7499190a250565b60606002805480602002602001604051908101604052809291908181526020018280548015610e5857602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610e3a575b5050505050905090565b610e6a610ea0565b6001600160a01b038116610e9457604051631e4fbdf760e01b8152600060048201526024016102c8565b610e9d81610ecd565b50565b6000546001600160a01b031633146106915760405163118cdaa760e01b81523360048201526024016102c8565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b0381168114610f3457600080fd5b919050565b600060208284031215610f4b57600080fd5b610f5482610f1d565b9392505050565b6000815180845260005b81811015610f8157602081850181015186830182015201610f65565b506000602082860101526020601f19601f83011685010191505092915050565b602080825282516001600160a01b03168282015282015160e06040830152600090610fd0610100840182610f5b565b90506040840151601f1980858403016060860152610fee8383610f5b565b925060608601519150808584030160808601525061100c8282610f5b565b9150506080840151151560a084015260a084015160c084015260c084015160e08401528091505092915050565b6000806040838503121561104c57600080fd5b61105583610f1d565b946020939093013593505050565b6020808252825182820181905260009190848201906040850190845b818110156110a45783516001600160a01b03168352928401929184019160010161107f565b50909695505050505050565b60008083601f8401126110c257600080fd5b50813567ffffffffffffffff8111156110da57600080fd5b6020830191508360208285010111156110f257600080fd5b9250929050565b60008060008060008060006080888a03121561111457600080fd5b61111d88610f1d565b9650602088013567ffffffffffffffff8082111561113a57600080fd5b6111468b838c016110b0565b909850965060408a013591508082111561115f57600080fd5b61116b8b838c016110b0565b909650945060608a013591508082111561118457600080fd5b506111918a828b016110b0565b989b979a50959850939692959293505050565b60208082526011908201527014dd1d59195b9d081b9bdd08199bdd5b99607a1b604082015260600190565b600181811c908216806111e357607f821691505b60208210810361120357634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b8082018082111561123257611232611209565b92915050565b634e487b7160e01b600052603260045260246000fd5b60006001820161126057611260611209565b5060010190565b634e487b7160e01b600052604160045260246000fd5b601f8211156112c757600081815260208120601f850160051c810160208610156112a45750805b601f850160051c820191505b818110156112c3578281556001016112b0565b5050505b505050565b815167ffffffffffffffff8111156112e6576112e6611267565b6112fa816112f484546111cf565b8461127d565b602080601f83116001811461132f57600084156113175750858301515b600019600386901b1c1916600185901b1785556112c3565b600085815260208120601f198616915b8281101561135e5788860151825594840194600190910190840161133f565b508582101561137c5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b81835281816020850137506000828201602090810191909152601f909101601f19169091010190565b6040815260006113c960408301868861138c565b82810360208401526113dc81858761138c565b97965050505050505056fea2646970667358221220bb85ca3e762c556c50f822b265a49783db96fe25627c0ebbe538e52cc46b905064736f6c63430008140033",
+  "devdoc": {
+    "details": "Only owner (admin) can add/deactivate students, AllocationManager records funding",
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "addStudent(address,string,string,string)": {
+        "params": {
+          "name": "Student's full name",
+          "researchArea": "Field of research",
+          "studentAddress": "Student's wallet address",
+          "university": "University or institution"
+        }
+      },
+      "deactivateStudent(address)": {
+        "params": {
+          "studentAddress": "Student's wallet address"
+        }
+      },
+      "getActiveStudents()": {
+        "returns": {
+          "_0": "Array of active student addresses"
+        }
+      },
+      "getAllStudents()": {
+        "returns": {
+          "_0": "Array of all student addresses"
+        }
+      },
+      "getStudent(address)": {
+        "params": {
+          "studentAddress": "Student's wallet address"
+        },
+        "returns": {
+          "_0": "Student struct with all profile data"
+        }
+      },
+      "getStudentCount()": {
+        "returns": {
+          "_0": "Number of students"
+        }
+      },
+      "isStudentActive(address)": {
+        "params": {
+          "studentAddress": "Student's wallet address"
+        },
+        "returns": {
+          "_0": "Boolean indicating if student is active"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "reactivateStudent(address)": {
+        "params": {
+          "studentAddress": "Student's wallet address"
+        }
+      },
+      "recordFunding(address,uint256)": {
+        "details": "Can only be called by AllocationManager during distribution",
+        "params": {
+          "amount": "Amount of USDC received",
+          "studentAddress": "Student's wallet address"
+        }
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "setAllocationManager(address)": {
+        "params": {
+          "_allocationManager": "Address of AllocationManager contract"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "StudentRegistry",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addStudent(address,string,string,string)": {
+        "notice": "Add a new student to the registry"
+      },
+      "constructor": {
+        "notice": "Initialize StudentRegistry"
+      },
+      "deactivateStudent(address)": {
+        "notice": "Deactivate a student (stop accepting funding)"
+      },
+      "getActiveStudents()": {
+        "notice": "Get all active student addresses"
+      },
+      "getAllStudents()": {
+        "notice": "Get all registered student addresses"
+      },
+      "getStudent(address)": {
+        "notice": "Get student profile by address"
+      },
+      "getStudentCount()": {
+        "notice": "Get total number of registered students"
+      },
+      "isStudentActive(address)": {
+        "notice": "Check if a student is active"
+      },
+      "reactivateStudent(address)": {
+        "notice": "Reactivate a deactivated student"
+      },
+      "recordFunding(address,uint256)": {
+        "notice": "Record funding received by a student"
+      },
+      "setAllocationManager(address)": {
+        "notice": "Set the AllocationManager contract address"
+      }
+    },
+    "notice": "Manages verified student profiles for the Endaoment platform",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8,
+        "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 5083,
+        "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+        "label": "students",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_struct(Student)5638_storage)"
+      },
+      {
+        "astId": 5086,
+        "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+        "label": "studentAddresses",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_array(t_address)dyn_storage"
+      },
+      {
+        "astId": 5090,
+        "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+        "label": "isRegistered",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 5092,
+        "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+        "label": "allocationManager",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_struct(Student)5638_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct IStudentRegistry.Student)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Student)5638_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Student)5638_storage": {
+        "encoding": "inplace",
+        "label": "struct IStudentRegistry.Student",
+        "members": [
+          {
+            "astId": 5625,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "wallet",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 5627,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "name",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 5629,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "university",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 5631,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "researchArea",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 5633,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "isActive",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_bool"
+          },
+          {
+            "astId": 5635,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "totalReceived",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 5637,
+            "contract": "contracts/StudentRegistry.sol:StudentRegistry",
+            "label": "addedAt",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "224"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
