@@ -1,75 +1,208 @@
 "use client";
 
 import Link from "next/link";
-import { Address } from "@scaffold-ui/components";
 import type { NextPage } from "next";
-import { hardhat } from "viem/chains";
 import { useAccount } from "wagmi";
-import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { useTargetNetwork } from "~~/hooks/scaffold-eth";
+import { StudentCard } from "~~/components/miniapp/StudentCard";
+import { CURRENT_EPOCH, PLATFORM_STATS } from "~~/data/constants";
+import { STUDENTS } from "~~/data/students";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
-  const { targetNetwork } = useTargetNetwork();
 
   return (
     <>
-      <div className="flex items-center flex-col grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address
-              address={connectedAddress}
-              chain={targetNetwork}
-              blockExplorerAddressLink={
-                targetNetwork.id === hardhat.id ? `/blockexplorer/address/${connectedAddress}` : undefined
-              }
-            />
+      {/* Hero Section */}
+      <div className="hero min-h-[40vh] bg-gradient-to-br from-primary/20 to-secondary/20">
+        <div className="hero-content text-center">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl font-bold mb-4">Endaoment</h1>
+            <p className="text-xl mb-2">Transform donations into perpetual scholarships</p>
+            <p className="text-lg opacity-80 mb-6">Your donation earns DeFi yield → funds students forever</p>
+
+            {/* Platform stats */}
+            <div className="stats stats-vertical lg:stats-horizontal shadow-xl">
+              <div className="stat">
+                <div className="stat-title">Total Donated</div>
+                <div className="stat-value text-primary">${PLATFORM_STATS.totalDonated.toLocaleString()}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Yield Generated</div>
+                <div className="stat-value text-secondary">${PLATFORM_STATS.totalYieldGenerated.toLocaleString()}</div>
+              </div>
+              <div className="stat">
+                <div className="stat-title">Students Supported</div>
+                <div className="stat-value">{PLATFORM_STATS.studentsSupported}</div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex gap-4 justify-center mt-8">
+              {connectedAddress ? (
+                <>
+                  <Link href="/dashboard">
+                    <button className="btn btn-primary btn-lg">My Dashboard</button>
+                  </Link>
+                  {CURRENT_EPOCH.isVotingOpen && (
+                    <Link href="/allocate">
+                      <button className="btn btn-secondary btn-lg">Allocate Yield</button>
+                    </Link>
+                  )}
+                </>
+              ) : (
+                <button className="btn btn-primary btn-lg">Connect Wallet to Start</button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Epoch Banner */}
+      {CURRENT_EPOCH.isVotingOpen && (
+        <div className="alert alert-info mx-4 my-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            className="stroke-current shrink-0 w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          <span>
+            <strong>Epoch {CURRENT_EPOCH.id} voting is open!</strong> Allocate your $
+            {CURRENT_EPOCH.totalYield.toLocaleString()} in yield to students until{" "}
+            {CURRENT_EPOCH.votingEndDate.toLocaleDateString()}.
+          </span>
+          <div>
+            <Link href="/allocate">
+              <button className="btn btn-sm btn-primary">Allocate Now</button>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content: Student Grid */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-6">
+          <div>
+            <h2 className="text-3xl font-bold">Fund a Student</h2>
+            <p className="text-base-content/70 mt-2">
+              Browse students from top LATAM universities and support their education
+            </p>
           </div>
 
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
+          {/* Filter/Sort (future enhancement) */}
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-outline btn-sm">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+                />
+              </svg>
+              Filter
+            </label>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <a>All Students</a>
+              </li>
+              <li>
+                <a>PhD</a>
+              </li>
+              <li>
+                <a>Masters</a>
+              </li>
+              <li>
+                <a>Undergraduate</a>
+              </li>
+              <li className="divider"></li>
+              <li>
+                <a>Brazil</a>
+              </li>
+              <li>
+                <a>Mexico</a>
+              </li>
+              <li>
+                <a>Argentina</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Student Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {STUDENTS.map(student => (
+            <StudentCard key={student.id} student={student} />
+          ))}
+        </div>
+
+        {/* How it Works Section */}
+        <div className="divider my-16"></div>
+
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-4">How Endaoment Works</h2>
+          <p className="text-base-content/70">
+            A new model for educational funding inspired by Octant&apos;s allocation mechanism
           </p>
         </div>
 
-        <div className="grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col md:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body items-center text-center">
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="card-title">1. Donate</h3>
               <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contracts
-                </Link>{" "}
-                tab.
+                Deposit USDC or ETH. Your principal stays safe in DeFi vaults, earning yield through Aave, Morpho, and
+                other strategies.
               </p>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body items-center text-center">
+              <div className="text-4xl mb-4">🗳️</div>
+              <h3 className="card-title">2. Allocate</h3>
               <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
+                Every 30 days, vote to allocate your earned yield to students. Quadratic funding amplifies smaller
+                donations for fairness.
               </p>
+            </div>
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body items-center text-center">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className="card-title">3. Impact</h3>
+              <p>
+                Students receive funding for research, equipment, and courses. Track their progress through papers,
+                presentations, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Banner */}
+        <div className="card bg-gradient-to-r from-primary to-secondary text-primary-content shadow-2xl">
+          <div className="card-body items-center text-center">
+            <h2 className="card-title text-3xl mb-4">Ready to make perpetual impact?</h2>
+            <p className="mb-6">
+              Join {PLATFORM_STATS.activeDonors} donors supporting the next generation of LATAM leaders
+            </p>
+            <div className="card-actions">
+              <button className="btn btn-neutral btn-lg">Connect Wallet to Start</button>
             </div>
           </div>
         </div>
