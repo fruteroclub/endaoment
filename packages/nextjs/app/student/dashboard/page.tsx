@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -11,7 +11,7 @@ import { getFundingClaim, getStudentDocuments, getStudentScore } from "~~/data/m
 import { getFundingProgress, getStudentById } from "~~/data/students";
 import { FundingClaim, StudentDocument, StudentScore } from "~~/types/student-flow";
 
-export default function StudentDashboardPage() {
+function StudentDashboardContent() {
   const { address } = useAccount();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<"overview" | "documents" | "funding" | "voting">("overview");
@@ -406,5 +406,13 @@ function VotingTab({ score }: { score: StudentScore | null }) {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function StudentDashboardPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">Loading...</div>}>
+      <StudentDashboardContent />
+    </Suspense>
   );
 }

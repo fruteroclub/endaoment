@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { UI_CONFIG } from "../../data/constants";
 import { getFundingProgress } from "../../data/students";
 import { Student } from "../../types/student";
 import { PrimaryButton } from "../ui/PrimaryButton";
