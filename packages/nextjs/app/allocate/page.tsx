@@ -39,10 +39,16 @@ export default function AllocatePage() {
     functionName: "totalSupply",
   });
 
-  // Read available yield
+  // Read available yield (total vault yield)
   const { data: availableYield } = useScaffoldReadContract({
     contractName: "EndaomentVault",
     functionName: "getAvailableYield",
+  });
+
+  // Read whale address to determine user type
+  const { data: whaleAddress } = useScaffoldReadContract({
+    contractName: "EndaomentVault",
+    functionName: "whale",
   });
 
   const [allocations, setAllocations] = useState<Record<string, number>>({});
@@ -67,7 +73,16 @@ export default function AllocatePage() {
   const votingPower =
     userShares && totalShares && Number(totalShares) > 0 ? (Number(userShares) / Number(totalShares)) * 100 : 0;
 
-  const totalYield = availableYield ? Number(formatUnits(availableYield, 6)) : 0;
+  // Calculate user's personal yield based on donor type
+  const totalVaultYield = availableYield ? Number(formatUnits(availableYield, 6)) : 0;
+  const isWhale = whaleAddress?.toLowerCase() === address?.toLowerCase();
+  const userDonorShare = isWhale ? 0.1 : 0.15; // 10% for whale, 15% for retail
+  const donorPoolYield = totalVaultYield * userDonorShare;
+
+  // User's share of their donor pool (proportional to their vault shares)
+  const userShareRatio =
+    userShares && totalShares && Number(totalShares) > 0 ? Number(userShares) / Number(totalShares) : 0;
+  const userPersonalYield = donorPoolYield * userShareRatio;
   const epochId = currentEpoch ? Number(currentEpoch.id) : 0;
   const epochEndTime = currentEpoch ? Number(currentEpoch.endTime) : Date.now() / 1000 + 86400;
   const isVotingOpen = epochEndTime * 1000 > Date.now();
@@ -192,7 +207,7 @@ export default function AllocatePage() {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <h1 className="text-4xl font-bold mb-4">Allocate Yield - Epoch {epochId}</h1>
       <p className="text-base-content/70 mb-6">
-        You have ${totalYield.toLocaleString()} in yield to allocate to students.
+        You have ${userPersonalYield.toFixed(2)} in yield to allocate to students.
       </p>
 
       {/* Vault Context Banner */}
@@ -200,8 +215,10 @@ export default function AllocatePage() {
         <div>
           <div className="font-bold">💼 Allocating from: EndaomentVault</div>
           <div className="text-sm">
-            Your voting power: {Number(formatUnits(userShares || 0n, 18)).toFixed(2)} shares ({votingPower.toFixed(2)}
-            %)
+            Your voting power: {Number(formatUnits(userShares || 0n, 18)).toFixed(2)} shares ({votingPower.toFixed(2)}%)
+          </div>
+          <div className="text-sm mt-1">
+            Donor type: {isWhale ? "🐋 Whale (10% yield share)" : "💰 Retail (15% yield share)"}
           </div>
         </div>
       </div>
@@ -280,8 +297,8 @@ export default function AllocatePage() {
       <div className="space-y-4">
         {((studentAddresses as readonly string[]) || []).map((studentAddr: string, index: number) => {
           const allocation = allocations[studentAddr] || 0;
-          // Student gets 75% of their allocated yield
-          const studentYield = ((totalYield * 0.75 * allocation) / 100).toFixed(2);
+          // Student gets their percentage of user's personal yield
+          const studentYield = ((userPersonalYield * allocation) / 100).toFixed(2);
 
           return (
             <div key={studentAddr} className="card bg-base-100 shadow">
@@ -294,7 +311,7 @@ export default function AllocatePage() {
                   <div className="text-right">
                     <p className="font-bold text-lg">{allocation}%</p>
                     <p className="text-sm text-success font-semibold">${studentYield} USDC</p>
-                    <p className="text-xs text-base-content/60">(75% of {allocation}% yield)</p>
+                    <p className="text-xs text-base-content/60">{allocation}% of your yield</p>
                   </div>
                 </div>
                 <input
