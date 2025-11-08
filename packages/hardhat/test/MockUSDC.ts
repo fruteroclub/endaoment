@@ -61,17 +61,17 @@ describe("MockUSDC", function () {
   });
 
   describe("Faucet", function () {
-    it("Should allow anyone to call faucet and receive 1000 USDC", async function () {
+    it("Should allow anyone to call faucet and receive 10000 USDC", async function () {
       await mockUSDC.connect(addr1).faucet();
 
-      expect(await mockUSDC.balanceOf(addr1.address)).to.equal(ethers.parseUnits("1000", 6));
+      expect(await mockUSDC.balanceOf(addr1.address)).to.equal(ethers.parseUnits("10000", 6));
     });
 
     it("Should allow multiple faucet calls", async function () {
       await mockUSDC.connect(addr1).faucet();
       await mockUSDC.connect(addr1).faucet();
 
-      expect(await mockUSDC.balanceOf(addr1.address)).to.equal(ethers.parseUnits("2000", 6));
+      expect(await mockUSDC.balanceOf(addr1.address)).to.equal(ethers.parseUnits("20000", 6));
     });
 
     it("Should update total supply when using faucet", async function () {
@@ -80,7 +80,7 @@ describe("MockUSDC", function () {
       await mockUSDC.connect(addr1).faucet();
       await mockUSDC.connect(addr2).faucet();
 
-      expect(await mockUSDC.totalSupply()).to.equal(initialSupply + ethers.parseUnits("2000", 6));
+      expect(await mockUSDC.totalSupply()).to.equal(initialSupply + ethers.parseUnits("20000", 6));
     });
   });
 
