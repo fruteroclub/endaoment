@@ -1,0 +1,31 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "baseBuilder": {
+    "ownerAddress": ""
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "Endaoment",
+    "homeUrl": "https://endaoment-mvp.vercel.app",
+    "iconUrl": "https://endaoment-mvp.vercel.app/logo/endaoment-logo.png",
+    "splashImageUrl": "https://endaoment-mvp.vercel.app/logo/endaoment-logo.png",
+    "splashBackgroundColor": "#FFFFFF",
+    "webhookUrl": "",
+    "subtitle": "Fund students via DeFi yield",
+    "description": "Endaoment connects institutional donors with students through an innovative DeFi yield mechanism. Whales deposit stablecoins, and generated yield automatically funds student education.",
+    "screenshotUrls": [],
+    "primaryCategory": "finance",
+    "tags": ["defi", "education", "yield", "social-impact", "dao"],
+    "heroImageUrl": "https://endaoment-mvp.vercel.app/logo/endaoment-logo.png",
+    "tagline": "Fund education with yield",
+    "ogTitle": "Endaoment - Fund Students Through DeFi Yield",
+    "ogDescription": "Connect institutional donors with students through DeFi yield. Sustainable funding for education powered by blockchain.",
+    "ogImageUrl": "https://endaoment-mvp.vercel.app/logo/endaoment-logo.png",
+    "noindex": false
+  }
+}
+

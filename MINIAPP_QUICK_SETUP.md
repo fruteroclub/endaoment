@@ -1,22 +1,42 @@
 # 🚀 Mini App Registration - Quick Checklist
 
-## Step 1: Environment Variable (5 minutes)
+## Step 1: Set Up Farcaster Manifest (10 minutes)
 
-### In Vercel Dashboard:
-1. Go to: https://vercel.com/your-project/settings/environment-variables
-2. Add variable:
-   - **Name**: `NEXT_PUBLIC_APP_URL`
-   - **Value**: `https://endaoment-mvp.vercel.app`
-   - **Environments**: Production, Preview, Development
-3. Click "Save"
-4. Redeploy (or push to Git)
+### The manifest file is already created:
+- **Location**: `/public/.well-known/farcaster.json`
+- **URL**: `https://endaoment-mvp.vercel.app/.well-known/farcaster.json`
+
+### You need to add account association:
+
+1. **Go to Base Build**:
+   ```
+   https://www.base.dev/preview?tab=account
+   ```
+
+2. **Sign your domain**:
+   - Enter: `endaoment-mvp.vercel.app`
+   - Click "Submit" → "Verify" → Sign with wallet
+   - Copy the generated `header`, `payload`, `signature`
+
+3. **Update manifest**:
+   - Edit `/public/.well-known/farcaster.json`
+   - Replace empty `accountAssociation` fields with generated values
+
+4. **Commit and deploy**:
+   ```bash
+   git add packages/nextjs/public/.well-known/farcaster.json
+   git commit -m "Add Farcaster manifest signature"
+   git push
+   ```
 
 ### Verify:
 ```bash
-curl https://endaoment-mvp.vercel.app/api/miniapp-manifest
+curl https://endaoment-mvp.vercel.app/.well-known/farcaster.json
 ```
 
-Should return valid JSON ✅
+Should return valid JSON with filled `accountAssociation` ✅
+
+**See `MANIFEST_SETUP.md` for full details**
 
 ---
 
