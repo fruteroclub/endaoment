@@ -19,7 +19,17 @@ export default function AllocatePage() {
   const remaining = 100 - totalAllocated;
 
   const handleSliderChange = (studentId: string, value: number) => {
-    setAllocations(prev => ({ ...prev, [studentId]: value }));
+    setAllocations(prev => {
+      const othersTotal = Object.entries(prev)
+        .filter(([id]) => id !== studentId)
+        .reduce((sum, [, pct]) => sum + pct, 0);
+
+      // Cap the new value so total doesn't exceed 100%
+      const maxAllowed = 100 - othersTotal;
+      const cappedValue = Math.min(value, maxAllowed);
+
+      return { ...prev, [studentId]: cappedValue };
+    });
   };
 
   const handleSubmit = () => {
