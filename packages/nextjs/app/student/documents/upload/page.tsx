@@ -79,7 +79,7 @@ export default function UploadDocumentPage() {
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <Link
           href="/student/dashboard"
-          className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+          className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
         >
           ← Back to Dashboard
         </Link>
@@ -97,7 +97,7 @@ export default function UploadDocumentPage() {
               <select
                 value={formData.type}
                 onChange={e => setFormData({ ...formData, type: e.target.value as any })}
-                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] focus:outline-none focus:border-[#0052FF] transition-colors"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] focus:outline-none focus:border-[#5DADE2] transition-colors"
                 required
               >
                 <option value="grade">Grade / Transcript</option>
@@ -116,7 +116,7 @@ export default function UploadDocumentPage() {
                 value={formData.title}
                 onChange={e => setFormData({ ...formData, title: e.target.value })}
                 placeholder="e.g., Academic Transcript - Fall 2024"
-                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-[#0052FF] transition-colors"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-[#5DADE2] transition-colors"
                 required
               />
             </div>
@@ -129,17 +129,17 @@ export default function UploadDocumentPage() {
                 onChange={e => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Add any additional details about this document..."
                 rows={4}
-                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-[#0052FF] transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[16px] text-[#0A0F1C] placeholder:text-[#1A1A1A]/40 focus:outline-none focus:border-[#5DADE2] transition-colors resize-none"
               />
             </div>
 
             {/* File Upload */}
             <div>
               <label className="block text-[16px] font-semibold text-[#0A0F1C] mb-3">Document File *</label>
-              <div className="border-2 border-dashed border-[#F2F4F7] rounded-[6px] p-8 text-center hover:border-[#0052FF] transition-colors">
+              <div className="border-2 border-dashed border-[#F2F4F7] rounded-[6px] p-8 text-center hover:border-[#5DADE2] transition-colors">
                 {file ? (
                   <div className="flex items-center justify-center gap-4">
-                    <FileText className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
+                    <FileText className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
                     <div className="text-left">
                       <p className="text-[16px] font-semibold text-[#0A0F1C]">{file.name}</p>
                       <p className="text-[14px] text-[#1A1A1A]/70">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
@@ -162,8 +162,8 @@ export default function UploadDocumentPage() {
                       required
                     />
                     <div className="flex flex-col items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center">
-                        <Upload className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
+                      <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center">
+                        <Upload className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
                       </div>
                       <div>
                         <p className="text-[16px] font-semibold text-[#0A0F1C] mb-1">

@@ -39,14 +39,14 @@ export function VaultCard({ vault }: VaultCardProps) {
 
   return (
     <>
-      <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+      <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
         {/* Header */}
         <div className="flex items-start gap-3 mb-4">
-          <div className="w-10 h-10 rounded-full bg-[#0052FF]/10 flex items-center justify-center flex-shrink-0">
-            <Box className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+          <div className="w-10 h-10 rounded-full bg-[#5DADE2]/10 flex items-center justify-center flex-shrink-0">
+            <Box className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
           </div>
           <div className="flex-1">
-            <h3 className="text-[20px] font-bold text-[#0052FF] mb-1">{displayName}</h3>
+            <h3 className="text-[20px] font-bold text-[#5DADE2] mb-1">{displayName}</h3>
             <p className="text-[13px] text-[#1A1A1A]/70">by {displayWhale}</p>
           </div>
         </div>
@@ -54,7 +54,7 @@ export function VaultCard({ vault }: VaultCardProps) {
         {/* Stats */}
         <div className="space-y-3 mb-6">
           <div className="flex items-center gap-2 text-[16px] text-[#1A1A1A]">
-            <TrendingUp className="w-4 h-4 text-[#0052FF]" strokeWidth={2} />
+            <TrendingUp className="w-4 h-4 text-[#5DADE2]" strokeWidth={2} />
             <span className="font-semibold">{vault.currentAPY}% APY</span>
           </div>
           <div className="flex items-center gap-2 text-[16px] text-[#1A1A1A]">

@@ -21,10 +21,10 @@ export default function StartPage() {
         {/* Path Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Whale Donor */}
-          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
+          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center mb-4">
-                <Box className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
+              <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center mb-4">
+                <Box className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
               </div>
               <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-2">Whale Donor</h2>
               <p className="text-[16px] text-[#1A1A1A]/70 mb-6">Create your vault and define yield strategy.</p>
@@ -40,10 +40,10 @@ export default function StartPage() {
           </div>
 
           {/* Retail Donor */}
-          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
+          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center mb-4">
-                <Users className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
+              <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center mb-4">
+                <Users className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
               </div>
               <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-2">Retail Donor</h2>
               <p className="text-[16px] text-[#1A1A1A]/70 mb-6">Join shared vaults starting at $10.</p>
@@ -54,10 +54,10 @@ export default function StartPage() {
           </div>
 
           {/* Student */}
-          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
+          <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 hover:scale-[1.02]">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center mb-4">
-                <GraduationCap className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
+              <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center mb-4">
+                <GraduationCap className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
               </div>
               <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-2">Student</h2>
               <p className="text-[16px] text-[#1A1A1A]/70 mb-6">Get funded, no repayment needed.</p>
@@ -76,8 +76,8 @@ export default function StartPage() {
         {/* Info Section */}
         <div className="bg-[#F2F4F7] rounded-[6px] p-6 border border-[#F2F4F7]">
           <div className="flex items-start gap-4">
-            <div className="w-6 h-6 rounded-full bg-[#0052FF]/10 flex items-center justify-center flex-shrink-0 mt-1">
-              <Info className="w-4 h-4 text-[#0052FF]" strokeWidth={2} />
+            <div className="w-6 h-6 rounded-full bg-[#5DADE2]/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <Info className="w-4 h-4 text-[#5DADE2]" strokeWidth={2} />
             </div>
             <div>
               <h3 className="text-[20px] font-bold text-[#0A0F1C] mb-2">How Yield Distribution Works</h3>

@@ -19,8 +19,8 @@ export function PrimaryButton({
 
   const variantClasses = {
     primary:
-      "bg-[#0052FF] text-white hover:bg-[#0040CC] hover:shadow-[0_4px_12px_rgba(0,82,255,0.1)] hover:-translate-y-[1px]",
-    secondary: "bg-white text-[#0052FF] border border-[#0052FF] hover:bg-[rgba(0,82,255,0.05)]",
+      "bg-[#5DADE2] text-white hover:bg-[#0040CC] hover:shadow-[0_4px_12px_rgba(0,82,255,0.1)] hover:-translate-y-[1px]",
+    secondary: "bg-white text-[#5DADE2] border border-[#5DADE2] hover:bg-[rgba(0,82,255,0.05)]",
   };
 
   const sizeClasses = {

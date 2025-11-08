@@ -26,7 +26,7 @@ export function StudentCard({ student, showDonateButton = true }: StudentCardPro
   };
 
   return (
-    <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+    <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
       {/* Header with name and verified badge */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1">
@@ -34,7 +34,7 @@ export function StudentCard({ student, showDonateButton = true }: StudentCardPro
             <h3 className="text-[20px] font-bold text-[#0A0F1C]">{student.name}</h3>
             {student.isVerified && <CheckCircle2 className="w-4 h-4 text-[#5CE27F]" strokeWidth={2} />}
           </div>
-          <p className="text-[16px] font-semibold text-[#0052FF] mb-2">{student.field}</p>
+          <p className="text-[16px] font-semibold text-[#5DADE2] mb-2">{student.field}</p>
         </div>
         <span className="text-[13px] font-medium text-[#1A1A1A] bg-[#F2F4F7] px-2 py-1 rounded-[6px]">
           {student.category}

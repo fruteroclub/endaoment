@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectWallet } from "@coinbase/onchainkit/wallet";
 import { Box, CheckSquare, GraduationCap, Heart, TrendingUp, User } from "lucide-react";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -57,60 +57,52 @@ const Home: NextPage = () => {
               <h2 className="text-[24px] font-bold text-[#0A0F1C] mb-6">Choose Your Path</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Student Button */}
-                <ConnectButton.Custom>
-                  {({ openConnectModal: openModal }) => {
-                    return (
-                      <button
-                        onClick={() => {
-                          setUserType("student");
-                          if (typeof window !== "undefined") {
-                            localStorage.setItem("userType", "student");
-                          }
-                          openModal();
-                        }}
-                        className="bg-white rounded-[6px] p-8 border-2 border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 text-left group"
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center group-hover:bg-[#0052FF]/20 transition-colors">
-                            <User className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
-                          </div>
-                          <h3 className="text-[24px] font-bold text-[#0A0F1C]">Student</h3>
-                        </div>
-                        <p className="text-[16px] text-[#1A1A1A]/70">
-                          Upload documents, earn voting power, and claim your funding
-                        </p>
-                      </button>
-                    );
+                <button
+                  onClick={() => {
+                    setUserType("student");
+                    if (typeof window !== "undefined") {
+                      localStorage.setItem("userType", "student");
+                    }
                   }}
-                </ConnectButton.Custom>
+                  className="bg-white rounded-[6px] p-8 border-2 border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 text-left group"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center group-hover:bg-[#5DADE2]/20 transition-colors">
+                      <User className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#0A0F1C]">Student</h3>
+                  </div>
+                  <p className="text-[16px] text-[#1A1A1A]/70 mb-6">
+                    Upload documents, earn voting power, and claim your funding
+                  </p>
+                  <div className="flex justify-center">
+                    <ConnectWallet />
+                  </div>
+                </button>
 
                 {/* Donor Button */}
-                <ConnectButton.Custom>
-                  {({ openConnectModal: openModal }) => {
-                    return (
-                      <button
-                        onClick={() => {
-                          setUserType("donor");
-                          if (typeof window !== "undefined") {
-                            localStorage.setItem("userType", "donor");
-                          }
-                          openModal();
-                        }}
-                        className="bg-white rounded-[6px] p-8 border-2 border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 text-left group"
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-16 h-16 rounded-full bg-[#0052FF]/10 flex items-center justify-center group-hover:bg-[#0052FF]/20 transition-colors">
-                            <Heart className="w-8 h-8 text-[#0052FF]" strokeWidth={2} />
-                          </div>
-                          <h3 className="text-[24px] font-bold text-[#0A0F1C]">Donor</h3>
-                        </div>
-                        <p className="text-[16px] text-[#1A1A1A]/70">
-                          Fund students and earn yield while making a perpetual impact
-                        </p>
-                      </button>
-                    );
+                <button
+                  onClick={() => {
+                    setUserType("donor");
+                    if (typeof window !== "undefined") {
+                      localStorage.setItem("userType", "donor");
+                    }
                   }}
-                </ConnectButton.Custom>
+                  className="bg-white rounded-[6px] p-8 border-2 border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300 text-left group"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-16 h-16 rounded-full bg-[#5DADE2]/10 flex items-center justify-center group-hover:bg-[#5DADE2]/20 transition-colors">
+                      <Heart className="w-8 h-8 text-[#5DADE2]" strokeWidth={2} />
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#0A0F1C]">Donor</h3>
+                  </div>
+                  <p className="text-[16px] text-[#1A1A1A]/70 mb-6">
+                    Fund students and earn yield while making a perpetual impact
+                  </p>
+                  <div className="flex justify-center">
+                    <ConnectWallet />
+                  </div>
+                </button>
               </div>
             </div>
           ) : (
@@ -166,10 +158,10 @@ const Home: NextPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Step 1 */}
-            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#0052FF]/10 flex items-center justify-center">
-                  <Box className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                <div className="w-10 h-10 rounded-full bg-[#5DADE2]/10 flex items-center justify-center">
+                  <Box className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                 </div>
                 <span className="text-[20px] font-bold text-[#0A0F1C]">1</span>
               </div>
@@ -180,10 +172,10 @@ const Home: NextPage = () => {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#0052FF]/10 flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                <div className="w-10 h-10 rounded-full bg-[#5DADE2]/10 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                 </div>
                 <span className="text-[20px] font-bold text-[#0A0F1C]">2</span>
               </div>
@@ -194,10 +186,10 @@ const Home: NextPage = () => {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#0052FF]/10 flex items-center justify-center">
-                  <CheckSquare className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                <div className="w-10 h-10 rounded-full bg-[#5DADE2]/10 flex items-center justify-center">
+                  <CheckSquare className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                 </div>
                 <span className="text-[20px] font-bold text-[#0A0F1C]">3</span>
               </div>
@@ -208,10 +200,10 @@ const Home: NextPage = () => {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+            <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#0052FF]/10 flex items-center justify-center">
-                  <GraduationCap className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                <div className="w-10 h-10 rounded-full bg-[#5DADE2]/10 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                 </div>
                 <span className="text-[20px] font-bold text-[#0A0F1C]">4</span>
               </div>
@@ -225,7 +217,7 @@ const Home: NextPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#0052FF] py-16">
+      <section className="bg-[#5DADE2] py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-[28px] font-bold text-white mb-4">Ready to make perpetual impact?</h2>
           <p className="text-[16px] text-white/90 mb-8 max-w-2xl mx-auto">
@@ -238,9 +230,9 @@ const Home: NextPage = () => {
               </PrimaryButton>
             </Link>
           ) : (
-            <PrimaryButton variant="secondary" size="lg">
-              Connect Wallet to Start
-            </PrimaryButton>
+            <div className="flex justify-center">
+              <ConnectWallet />
+            </div>
           )}
         </div>
       </section>

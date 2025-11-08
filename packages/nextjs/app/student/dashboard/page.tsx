@@ -80,7 +80,7 @@ function StudentDashboardContent() {
             {student.avatarUrl ? (
               <Image src={student.avatarUrl} alt={student.name} fill className="object-cover" />
             ) : (
-              <div className="w-full h-full bg-[#0052FF]/10 flex items-center justify-center text-[24px] font-bold text-[#0052FF]">
+              <div className="w-full h-full bg-[#5DADE2]/10 flex items-center justify-center text-[24px] font-bold text-[#5DADE2]">
                 {student.name.charAt(0)}
               </div>
             )}
@@ -95,7 +95,7 @@ function StudentDashboardContent() {
 
           <div className="flex-1">
             <h1 className="text-[36px] font-bold text-[#0A0F1C] mb-2">{student.name}</h1>
-            <p className="text-[16px] text-[#0052FF] font-semibold">{student.field}</p>
+            <p className="text-[16px] text-[#5DADE2] font-semibold">{student.field}</p>
             <p className="text-[14px] text-[#1A1A1A]/70">{student.university}</p>
           </div>
         </div>
@@ -106,8 +106,8 @@ function StudentDashboardContent() {
             onClick={() => setActiveTab("overview")}
             className={`px-6 py-3 text-[16px] font-semibold border-b-2 transition-colors ${
               activeTab === "overview"
-                ? "border-[#0052FF] text-[#0052FF]"
-                : "border-transparent text-[#1A1A1A]/70 hover:text-[#0052FF]"
+                ? "border-[#5DADE2] text-[#5DADE2]"
+                : "border-transparent text-[#1A1A1A]/70 hover:text-[#5DADE2]"
             }`}
           >
             Overview
@@ -116,8 +116,8 @@ function StudentDashboardContent() {
             onClick={() => setActiveTab("documents")}
             className={`px-6 py-3 text-[16px] font-semibold border-b-2 transition-colors ${
               activeTab === "documents"
-                ? "border-[#0052FF] text-[#0052FF]"
-                : "border-transparent text-[#1A1A1A]/70 hover:text-[#0052FF]"
+                ? "border-[#5DADE2] text-[#5DADE2]"
+                : "border-transparent text-[#1A1A1A]/70 hover:text-[#5DADE2]"
             }`}
           >
             Documents
@@ -126,8 +126,8 @@ function StudentDashboardContent() {
             onClick={() => setActiveTab("funding")}
             className={`px-6 py-3 text-[16px] font-semibold border-b-2 transition-colors ${
               activeTab === "funding"
-                ? "border-[#0052FF] text-[#0052FF]"
-                : "border-transparent text-[#1A1A1A]/70 hover:text-[#0052FF]"
+                ? "border-[#5DADE2] text-[#5DADE2]"
+                : "border-transparent text-[#1A1A1A]/70 hover:text-[#5DADE2]"
             }`}
           >
             Funding
@@ -136,8 +136,8 @@ function StudentDashboardContent() {
             onClick={() => setActiveTab("voting")}
             className={`px-6 py-3 text-[16px] font-semibold border-b-2 transition-colors ${
               activeTab === "voting"
-                ? "border-[#0052FF] text-[#0052FF]"
-                : "border-transparent text-[#1A1A1A]/70 hover:text-[#0052FF]"
+                ? "border-[#5DADE2] text-[#5DADE2]"
+                : "border-transparent text-[#1A1A1A]/70 hover:text-[#5DADE2]"
             }`}
           >
             Voting
@@ -150,12 +150,12 @@ function StudentDashboardContent() {
             {/* Funding Progress */}
             <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
               <div className="flex items-center gap-3 mb-4">
-                <DollarSign className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                <DollarSign className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                 <h2 className="text-[20px] font-bold text-[#0A0F1C]">Funding Progress</h2>
               </div>
               <div className="flex justify-between items-center mb-3">
                 <span className="text-[16px] font-semibold text-[#0A0F1C]">Progress</span>
-                <span className="text-[20px] font-bold text-[#0052FF]">{progress.toFixed(1)}%</span>
+                <span className="text-[20px] font-bold text-[#5DADE2]">{progress.toFixed(1)}%</span>
               </div>
               <div className="w-full bg-[#F2F4F7] rounded-full h-3 mb-2">
                 <div
@@ -176,11 +176,11 @@ function StudentDashboardContent() {
             {score && (
               <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
                 <div className="flex items-center gap-3 mb-4">
-                  <Award className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                  <Award className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                   <h2 className="text-[20px] font-bold text-[#0A0F1C]">Voting Power Score</h2>
                 </div>
                 <div className="text-center mb-4">
-                  <div className="text-[48px] font-bold text-[#0052FF] mb-2">{score.totalScore}</div>
+                  <div className="text-[48px] font-bold text-[#5DADE2] mb-2">{score.totalScore}</div>
                   <div className="text-[16px] text-[#1A1A1A]/70">Based on {score.documentsCount} documents</div>
                 </div>
                 <Link href="/student/proposals">
@@ -194,9 +194,9 @@ function StudentDashboardContent() {
             {/* Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link href="/student/documents" className="block">
-                <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+                <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
                   <div className="flex items-center gap-3 mb-2">
-                    <Upload className="w-5 h-5 text-[#0052FF]" strokeWidth={2} />
+                    <Upload className="w-5 h-5 text-[#5DADE2]" strokeWidth={2} />
                     <h3 className="text-[18px] font-bold text-[#0A0F1C]">Upload Documents</h3>
                   </div>
                   <p className="text-[14px] text-[#1A1A1A]/70">
@@ -207,7 +207,7 @@ function StudentDashboardContent() {
 
               {fundingClaim && fundingClaim.status === "approved" && (
                 <Link href="/student/claim" className="block">
-                  <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
+                  <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] hover:bg-[rgba(0,82,255,0.02)] transition-all duration-300">
                     <div className="flex items-center gap-3 mb-2">
                       <DollarSign className="w-5 h-5 text-[#5CE27F]" strokeWidth={2} />
                       <h3 className="text-[18px] font-bold text-[#0A0F1C]">Claim Funding</h3>
@@ -267,12 +267,12 @@ function DocumentsTab({ documents }: { documents: StudentDocument[] }) {
           {documents.map(doc => (
             <div
               key={doc.id}
-              className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] transition-all duration-300"
+              className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] transition-all duration-300"
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-start gap-4 flex-1">
-                  <div className="w-12 h-12 rounded-[6px] bg-[#0052FF]/10 flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-6 h-6 text-[#0052FF]" strokeWidth={2} />
+                  <div className="w-12 h-12 rounded-[6px] bg-[#5DADE2]/10 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-[#5DADE2]" strokeWidth={2} />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-[18px] font-bold text-[#0A0F1C] mb-1">{doc.title}</h3>
@@ -287,7 +287,7 @@ function DocumentsTab({ documents }: { documents: StudentDocument[] }) {
                 <div className="flex items-center gap-3">
                   {doc.status === "approved" && doc.score !== undefined && (
                     <div className="text-right">
-                      <div className="text-[20px] font-bold text-[#0052FF]">{doc.score}</div>
+                      <div className="text-[20px] font-bold text-[#5DADE2]">{doc.score}</div>
                       <div className="text-[12px] text-[#1A1A1A]/60">Score</div>
                     </div>
                   )}
@@ -324,7 +324,7 @@ function FundingTab({
       <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
         <div className="flex justify-between items-center mb-4">
           <span className="text-[16px] font-semibold text-[#0A0F1C]">Funding Progress</span>
-          <span className="text-[20px] font-bold text-[#0052FF]">{progress.toFixed(1)}%</span>
+          <span className="text-[20px] font-bold text-[#5DADE2]">{progress.toFixed(1)}%</span>
         </div>
         <div className="w-full bg-[#F2F4F7] rounded-full h-4 mb-3">
           <div
@@ -346,7 +346,7 @@ function FundingTab({
         <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
           <h3 className="text-[20px] font-bold text-[#0A0F1C] mb-4">Available to Claim</h3>
           <div className="bg-[#F2F4F7] rounded-[6px] p-4 mb-4">
-            <div className="text-[32px] font-bold text-[#0052FF] mb-1">
+            <div className="text-[32px] font-bold text-[#5DADE2] mb-1">
               ${fundingClaim.amount.toLocaleString()} {fundingClaim.token}
             </div>
             <div className="text-[14px] text-[#1A1A1A]/70">
@@ -386,7 +386,7 @@ function VotingTab({ score }: { score: StudentScore | null }) {
       <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
         <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-4">Your Voting Power</h2>
         <div className="text-center mb-6">
-          <div className="text-[48px] font-bold text-[#0052FF] mb-2">{score.totalScore}</div>
+          <div className="text-[48px] font-bold text-[#5DADE2] mb-2">{score.totalScore}</div>
           <div className="text-[16px] text-[#1A1A1A]/70">Total Voting Power Score</div>
         </div>
         <div className="space-y-3 mb-6">

@@ -74,7 +74,7 @@ export default function ClaimFundingPage() {
                   href={`https://etherscan.io/tx/${fundingClaim.txHash}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+                  className="inline-flex items-center gap-2 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
                 >
                   <span>View Transaction</span>
                   <ExternalLink className="w-4 h-4" strokeWidth={2} />
@@ -96,7 +96,7 @@ export default function ClaimFundingPage() {
         <div className="container mx-auto px-4 py-16 max-w-4xl">
           <Link
             href="/student/dashboard"
-            className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+            className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
           >
             ← Back to Dashboard
           </Link>
@@ -122,7 +122,7 @@ export default function ClaimFundingPage() {
       case "rejected":
         return <XCircle className="w-6 h-6 text-[#FF5B5B]" strokeWidth={2} />;
       case "claimed":
-        return <CheckCircle2 className="w-6 h-6 text-[#0052FF]" strokeWidth={2} />;
+        return <CheckCircle2 className="w-6 h-6 text-[#5DADE2]" strokeWidth={2} />;
       default:
         return null;
     }
@@ -137,7 +137,7 @@ export default function ClaimFundingPage() {
       case "rejected":
         return "bg-[#FF5B5B]/10 border-[#FF5B5B]/30 text-[#FF5B5B]";
       case "claimed":
-        return "bg-[#0052FF]/10 border-[#0052FF]/30 text-[#0052FF]";
+        return "bg-[#5DADE2]/10 border-[#5DADE2]/30 text-[#5DADE2]";
       default:
         return "bg-[#F2F4F7] border-[#F2F4F7] text-[#1A1A1A]/70";
     }
@@ -148,7 +148,7 @@ export default function ClaimFundingPage() {
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <Link
           href="/student/dashboard"
-          className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+          className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
         >
           ← Back to Dashboard
         </Link>
@@ -159,7 +159,7 @@ export default function ClaimFundingPage() {
 
           {/* Funding Amount */}
           <div className="bg-[#F2F4F7] rounded-[6px] p-8 mb-6 text-center">
-            <div className="text-[48px] font-bold text-[#0052FF] mb-2">${fundingClaim.amount.toLocaleString()}</div>
+            <div className="text-[48px] font-bold text-[#5DADE2] mb-2">${fundingClaim.amount.toLocaleString()}</div>
             <div className="text-[20px] font-semibold text-[#0A0F1C] mb-1">{fundingClaim.token}</div>
             <div className="text-[14px] text-[#1A1A1A]/70">Available to claim</div>
           </div>
@@ -196,7 +196,7 @@ export default function ClaimFundingPage() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[14px] text-[#1A1A1A]/70">Progress</span>
-                <span className="text-[16px] font-bold text-[#0052FF]">{progress.toFixed(1)}%</span>
+                <span className="text-[16px] font-bold text-[#5DADE2]">{progress.toFixed(1)}%</span>
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function ClaimFundingPage() {
                     href={`https://etherscan.io/tx/${fundingClaim.txHash}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0052FF] hover:text-[#0040CC] transition-colors flex items-center gap-1"
+                    className="text-[#5DADE2] hover:text-[#0040CC] transition-colors flex items-center gap-1"
                   >
                     <span>View on Etherscan</span>
                     <ExternalLink className="w-4 h-4" strokeWidth={2} />
@@ -240,7 +240,7 @@ export default function ClaimFundingPage() {
           )}
 
           {fundingClaim.status === "claimed" && (
-            <div className="bg-[#0052FF]/10 rounded-[6px] p-4 border border-[#0052FF]/30 text-center">
+            <div className="bg-[#5DADE2]/10 rounded-[6px] p-4 border border-[#5DADE2]/30 text-center">
               <p className="text-[16px] font-semibold text-[#0A0F1C]">Funds have already been claimed</p>
             </div>
           )}

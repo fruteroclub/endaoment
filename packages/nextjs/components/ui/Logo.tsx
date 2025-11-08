@@ -18,7 +18,7 @@ export function Logo({ className = "", size = "md", showLink = true }: LogoProps
   const logoContent = (
     <div className={`inline-flex items-center gap-0.5 font-bold ${sizeClasses[size]} ${className}`}>
       <span className="text-[#0A0F1C] lowercase">en</span>
-      <span className="bg-[#0052FF] text-white px-2 py-0.5 rounded-[4px] font-bold uppercase leading-tight">DAO</span>
+      <span className="bg-[#5DADE2] text-white px-2 py-0.5 rounded-[4px] font-bold uppercase leading-tight">DAO</span>
       <span className="text-[#0A0F1C] lowercase">ment</span>
     </div>
   );

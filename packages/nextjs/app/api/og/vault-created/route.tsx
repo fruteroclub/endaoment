@@ -18,8 +18,8 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0052FF",
-          backgroundImage: "linear-gradient(135deg, #0052FF 0%, #3374FF 100%)",
+          backgroundColor: "#5DADE2",
+          backgroundImage: "linear-gradient(135deg, #5DADE2 0%, #3374FF 100%)",
           padding: "40px",
         }}
       >
@@ -36,7 +36,7 @@ export async function GET(request: Request) {
             width: "90%",
           }}
         >
-          <div style={{ fontSize: "72px", fontWeight: "bold", marginBottom: "20px", color: "#0052FF" }}>
+          <div style={{ fontSize: "72px", fontWeight: "bold", marginBottom: "20px", color: "#5DADE2" }}>
             🏦 New Vault Created!
           </div>
           <div
@@ -55,7 +55,7 @@ export async function GET(request: Request) {
             style={{
               fontSize: "64px",
               fontWeight: "bold",
-              color: "#0052FF",
+              color: "#5DADE2",
               marginBottom: "20px",
             }}
           >

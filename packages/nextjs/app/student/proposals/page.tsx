@@ -39,7 +39,7 @@ export default function ProposalsPage() {
         <div className="container mx-auto px-4 py-16 max-w-4xl">
           <Link
             href="/student/dashboard"
-            className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+            className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
           >
             ← Back to Dashboard
           </Link>
@@ -78,7 +78,7 @@ export default function ProposalsPage() {
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         <Link
           href="/student/dashboard"
-          className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+          className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
         >
           ← Back to Dashboard
         </Link>
@@ -93,7 +93,7 @@ export default function ProposalsPage() {
           </div>
           {studentScore && (
             <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] text-center">
-              <div className="text-[32px] font-bold text-[#0052FF] mb-1">{studentScore.totalScore}</div>
+              <div className="text-[32px] font-bold text-[#5DADE2] mb-1">{studentScore.totalScore}</div>
               <div className="text-[14px] text-[#1A1A1A]/70">Voting Power</div>
             </div>
           )}
@@ -110,7 +110,7 @@ export default function ProposalsPage() {
             return (
               <div
                 key={proposal.id}
-                className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#0052FF] transition-all duration-300"
+                className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] hover:border-[#5DADE2] transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
@@ -120,7 +120,7 @@ export default function ProposalsPage() {
                     </div>
                     <p className="text-[16px] text-[#1A1A1A]/70 mb-4">{proposal.description}</p>
                     <div className="flex items-center gap-4 text-[14px] text-[#1A1A1A]/60 mb-4">
-                      <span className="px-3 py-1 rounded-full bg-[#0052FF]/10 text-[#0052FF] font-semibold">
+                      <span className="px-3 py-1 rounded-full bg-[#5DADE2]/10 text-[#5DADE2] font-semibold">
                         {proposal.category}
                       </span>
                       <span>•</span>
@@ -142,13 +142,13 @@ export default function ProposalsPage() {
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-[14px] font-semibold text-[#0A0F1C]">Voting Progress</span>
-                    <span className="text-[16px] font-bold text-[#0052FF]">
+                    <span className="text-[16px] font-bold text-[#5DADE2]">
                       {proposal.currentVotes} / {proposal.totalVotingPower}
                     </span>
                   </div>
                   <div className="w-full bg-[#F2F4F7] rounded-full h-3">
                     <div
-                      className="h-3 rounded-full bg-[#0052FF] transition-all duration-500"
+                      className="h-3 rounded-full bg-[#5DADE2] transition-all duration-500"
                       style={{ width: `${Math.min(votePercentage, 100)}%` }}
                     />
                   </div>
@@ -188,7 +188,7 @@ export default function ProposalsPage() {
                           />
                           <div className="flex justify-between text-[13px] text-[#1A1A1A]/70 mt-1">
                             <span>1</span>
-                            <span className="font-semibold text-[#0052FF]">{votingPower}</span>
+                            <span className="font-semibold text-[#5DADE2]">{votingPower}</span>
                             <span>{studentScore?.totalScore || 100}</span>
                           </div>
                         </div>

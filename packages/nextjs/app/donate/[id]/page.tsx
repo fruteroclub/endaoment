@@ -24,7 +24,7 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 py-16 max-w-4xl">
           <div className="bg-white rounded-[6px] p-8 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] text-center">
             <p className="text-[16px] text-[#FF5B5B] mb-4">Student not found</p>
-            <Link href="/" className="text-[#0052FF] hover:text-[#0040CC] transition-colors">
+            <Link href="/" className="text-[#5DADE2] hover:text-[#0040CC] transition-colors">
               ← Back to Home
             </Link>
           </div>
@@ -65,7 +65,7 @@ export default function DonatePage() {
             </p>
             <div className="bg-[#F2F4F7] rounded-[6px] p-4 mb-6 inline-block">
               <div className="text-[14px] text-[#1A1A1A]/70 mb-1">Transaction</div>
-              <code className="text-[12px] text-[#0052FF]">{mockTxHash.slice(0, 20)}...</code>
+              <code className="text-[12px] text-[#5DADE2]">{mockTxHash.slice(0, 20)}...</code>
             </div>
             <div className="flex gap-4 justify-center">
               <PrimaryButton size="lg" onClick={() => router.push("/dashboard")}>
@@ -86,7 +86,7 @@ export default function DonatePage() {
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors"
+          className="inline-flex items-center gap-2 mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" strokeWidth={2} />
           <span>Back to Students</span>
@@ -113,7 +113,7 @@ export default function DonatePage() {
                 />
               ) : null}
               <div
-                className="w-full h-full bg-[#0052FF]/10 flex items-center justify-center text-[36px] font-bold text-[#0052FF]"
+                className="w-full h-full bg-[#5DADE2]/10 flex items-center justify-center text-[36px] font-bold text-[#5DADE2]"
                 style={{ display: student.avatarUrl ? "none" : "flex" }}
               >
                 {student.name.charAt(0)}
@@ -142,7 +142,7 @@ export default function DonatePage() {
                 <h1 className="text-[36px] font-bold text-[#0A0F1C]">{student.name}</h1>
                 {student.isVerified && <CheckCircle2 className="w-6 h-6 text-[#5CE27F]" strokeWidth={2} />}
               </div>
-              <p className="text-[20px] font-semibold text-[#0052FF] mb-1">{student.field}</p>
+              <p className="text-[20px] font-semibold text-[#5DADE2] mb-1">{student.field}</p>
               <p className="text-[16px] text-[#1A1A1A]/70 mb-3">{student.university}</p>
               <p className="text-[16px] text-[#1A1A1A]/70 leading-relaxed">{student.bio}</p>
             </div>
@@ -152,7 +152,7 @@ export default function DonatePage() {
           <div className="border-t border-[#F2F4F7] pt-6">
             <div className="flex justify-between items-center mb-3">
               <span className="text-[16px] font-semibold text-[#0A0F1C]">Funding Progress</span>
-              <span className="text-[20px] font-bold text-[#0052FF]">{progress.toFixed(1)}%</span>
+              <span className="text-[20px] font-bold text-[#5DADE2]">{progress.toFixed(1)}%</span>
             </div>
             <div className="w-full bg-[#F2F4F7] rounded-full h-4 mb-3">
               <div
@@ -178,7 +178,7 @@ export default function DonatePage() {
             {/* Amount Display */}
             <div className="mb-6">
               <div className="text-center mb-6">
-                <div className="text-[48px] font-bold text-[#0052FF] mb-2">${amount.toLocaleString()}</div>
+                <div className="text-[48px] font-bold text-[#5DADE2] mb-2">${amount.toLocaleString()}</div>
                 <div className="text-[16px] text-[#1A1A1A]/70">{token}</div>
               </div>
 
@@ -194,7 +194,7 @@ export default function DonatePage() {
                     onChange={e => setAmount(Number(e.target.value))}
                     className="w-full h-2 bg-[#F2F4F7] rounded-full appearance-none cursor-pointer"
                     style={{
-                      background: `linear-gradient(to right, #0052FF 0%, #0052FF ${((amount - 10) / (10000 - 10)) * 100}%, #F2F4F7 ${((amount - 10) / (10000 - 10)) * 100}%, #F2F4F7 100%)`,
+                      background: `linear-gradient(to right, #5DADE2 0%, #5DADE2 ${((amount - 10) / (10000 - 10)) * 100}%, #F2F4F7 ${((amount - 10) / (10000 - 10)) * 100}%, #F2F4F7 100%)`,
                     }}
                   />
                 </div>
@@ -212,8 +212,8 @@ export default function DonatePage() {
                     onClick={() => setAmount(quickAmount)}
                     className={`px-4 py-2 rounded-[6px] text-[14px] font-semibold transition-all duration-300 ${
                       amount === quickAmount
-                        ? "bg-[#0052FF] text-white"
-                        : "bg-[#F2F4F7] text-[#1A1A1A] hover:bg-[#0052FF]/10"
+                        ? "bg-[#5DADE2] text-white"
+                        : "bg-[#F2F4F7] text-[#1A1A1A] hover:bg-[#5DADE2]/10"
                     }`}
                   >
                     ${quickAmount.toLocaleString()}
@@ -226,7 +226,7 @@ export default function DonatePage() {
             <div className="mb-6">
               <label className="block text-[13px] font-semibold text-[#1A1A1A] mb-2">Token</label>
               <select
-                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[#1A1A1A] focus:border-[#0052FF] focus:outline-none transition-all duration-300"
+                className="w-full px-4 py-3 rounded-[6px] border border-[#F2F4F7] bg-white text-[#1A1A1A] focus:border-[#5DADE2] focus:outline-none transition-all duration-300"
                 value={token}
                 onChange={e => setToken(e.target.value)}
               >
@@ -243,7 +243,7 @@ export default function DonatePage() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="w-5 h-5 text-[#0052FF] flex-shrink-0 mt-0.5"
+                className="w-5 h-5 text-[#5DADE2] flex-shrink-0 mt-0.5"
                 strokeWidth={2}
               >
                 <path

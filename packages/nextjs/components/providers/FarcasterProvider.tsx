@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import sdk from "@farcaster/frame-sdk";
+import miniapp from "@farcaster/miniapp-sdk";
 
 interface FarcasterContextValue {
   isFrameContext: boolean;
@@ -34,8 +34,8 @@ export function FarcasterProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const initFarcaster = async () => {
       try {
-        // Check if we're in a Farcaster frame context
-        const context = await sdk.context;
+        // Check if we're in a Farcaster miniapp context
+        const context = await miniapp.context;
 
         if (context?.user) {
           setContextValue({
@@ -53,12 +53,9 @@ export function FarcasterProvider({ children }: { children: React.ReactNode }) {
             isReady: true,
           }));
         }
-
-        // Add frame ready event
-        sdk.actions.ready();
       } catch {
-        // Fail gracefully - we're probably not in a frame
-        console.log("Not in Farcaster frame context");
+        // Fail gracefully - we're probably not in a miniapp
+        console.log("Not in Farcaster miniapp context");
         setContextValue(prev => ({
           ...prev,
           isReady: true,

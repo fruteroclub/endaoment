@@ -18,7 +18,7 @@ export default function StudentDetailPage() {
         <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)]">
           <p className="text-[16px] text-[#FF5B5B]">Student not found</p>
         </div>
-        <Link href="/" className="inline-block mt-4 text-[#0052FF] hover:text-[#0040CC] transition-colors">
+        <Link href="/" className="inline-block mt-4 text-[#5DADE2] hover:text-[#0040CC] transition-colors">
           ← Back to Students
         </Link>
       </div>
@@ -38,7 +38,7 @@ export default function StudentDetailPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-16 max-w-6xl">
-        <Link href="/" className="inline-block mb-6 text-[#0052FF] hover:text-[#0040CC] transition-colors">
+        <Link href="/" className="inline-block mb-6 text-[#5DADE2] hover:text-[#0040CC] transition-colors">
           ← Back to Students
         </Link>
 
@@ -71,7 +71,7 @@ export default function StudentDetailPage() {
                   />
                 ) : null}
                 <div
-                  className="w-full h-full bg-[#0052FF]/10 flex items-center justify-center text-[32px] font-bold text-[#0052FF]"
+                  className="w-full h-full bg-[#5DADE2]/10 flex items-center justify-center text-[32px] font-bold text-[#5DADE2]"
                   style={{ display: student.avatarUrl ? "none" : "flex" }}
                 >
                   {student.name.charAt(0)}
@@ -100,7 +100,7 @@ export default function StudentDetailPage() {
                   <h1 className="text-[36px] font-bold text-[#0A0F1C]">{student.name}</h1>
                   {student.isVerified && <CheckCircle2 className="w-5 h-5 text-[#5CE27F]" strokeWidth={2} />}
                 </div>
-                <p className="text-[20px] font-semibold text-[#0052FF] mb-1">{student.field}</p>
+                <p className="text-[20px] font-semibold text-[#5DADE2] mb-1">{student.field}</p>
                 <p className="text-[16px] text-[#1A1A1A]/70">{student.university}</p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function StudentDetailPage() {
             <div className="bg-white rounded-[6px] p-6 border border-[#F2F4F7] shadow-[0_2px_6px_rgba(0,0,0,0.05)] mb-6">
               <div className="flex justify-between items-center mb-3">
                 <span className="text-[16px] font-semibold text-[#0A0F1C]">Funding Progress</span>
-                <span className="text-[16px] font-bold text-[#0052FF]">{progress.toFixed(1)}%</span>
+                <span className="text-[16px] font-bold text-[#5DADE2]">{progress.toFixed(1)}%</span>
               </div>
               <div className="w-full bg-[#F2F4F7] rounded-full h-3 mb-2">
                 <div
@@ -137,7 +137,7 @@ export default function StudentDetailPage() {
               <h2 className="text-[20px] font-bold text-[#0A0F1C] mb-4">Impact Metrics</h2>
               <div className="space-y-4">
                 {student.impactMetrics.map((metric, idx) => (
-                  <div key={idx} className="border-l-4 border-[#0052FF] pl-4 py-2">
+                  <div key={idx} className="border-l-4 border-[#5DADE2] pl-4 py-2">
                     <h3 className="text-[16px] font-semibold text-[#0A0F1C] mb-1">{metric.title}</h3>
                     {metric.description && <p className="text-[14px] text-[#1A1A1A]/70 mb-1">{metric.description}</p>}
                     {metric.date && <p className="text-[13px] text-[#1A1A1A]/60">{metric.date}</p>}
