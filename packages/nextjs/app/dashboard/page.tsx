@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MOCK_DONATION_HISTORY } from "~~/data/constants";
+import { MOCK_MEMBERSHIP, MOCK_VAULT } from "~~/data/mockVaults";
 import { getStudentById } from "~~/data/students";
 
 export default function DashboardPage() {
@@ -16,6 +17,35 @@ export default function DashboardPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-6">My Dashboard</h1>
+
+      {/* Vault Membership */}
+      <div className="card bg-base-100 shadow-xl mb-8">
+        <div className="card-body">
+          <h2 className="card-title">💼 Your Vaults</h2>
+          <div className="stats stats-vertical lg:stats-horizontal shadow">
+            <div className="stat">
+              <div className="stat-title">Vault</div>
+              <div className="stat-value text-lg">{MOCK_VAULT.name}</div>
+              <div className="stat-desc">by {MOCK_VAULT.whaleName}</div>
+            </div>
+            <div className="stat">
+              <div className="stat-title">Your Deposit</div>
+              <div className="stat-value text-primary">${MOCK_MEMBERSHIP.depositAmount}</div>
+              <div className="stat-desc">{MOCK_MEMBERSHIP.shares} shares</div>
+            </div>
+            <div className="stat">
+              <div className="stat-title">Yield Earned</div>
+              <div className="stat-value text-secondary">${MOCK_MEMBERSHIP.yieldEarned.toFixed(2)}</div>
+              <div className="stat-desc">From vault strategies</div>
+            </div>
+          </div>
+          <div className="card-actions justify-end mt-4">
+            <Link href="/allocate">
+              <button className="btn btn-primary btn-sm">Allocate Yield →</button>
+            </Link>
+          </div>
+        </div>
+      </div>
 
       {/* Stats */}
       <div className="stats stats-vertical lg:stats-horizontal shadow mb-8 w-full">
