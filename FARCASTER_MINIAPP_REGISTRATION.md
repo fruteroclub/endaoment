@@ -101,8 +101,8 @@ Open these URLs in a browser to verify the HTML meta tags are correct.
    - **Frame URL** (optional): `https://endaoment-mvp.vercel.app/api/frames/vault-created`
    
    **Assets:**
-   - **Logo/Icon**: `https://endaoment-mvp.vercel.app/logo.svg` (192x192px or 512x512px)
-   - **Splash Image**: `https://endaoment-mvp.vercel.app/thumbnail.jpg` (1200x630px)
+   - **Logo/Icon**: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png` (192x192px or 512x512px)
+   - **Splash Image**: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png` (1200x630px)
    - **Screenshots**: Take screenshots of your app (recommended 3-5 images)
    
    **Categories:**
@@ -185,8 +185,8 @@ Before submitting, verify:
 
 - [ ] **Environment variable set**: `NEXT_PUBLIC_APP_URL` on Vercel
 - [ ] **Manifest accessible**: `curl https://endaoment-mvp.vercel.app/api/miniapp-manifest` returns valid JSON
-- [ ] **Logo exists**: `https://endaoment-mvp.vercel.app/logo.svg` loads
-- [ ] **Thumbnail exists**: `https://endaoment-mvp.vercel.app/thumbnail.jpg` loads
+- [ ] **Logo exists**: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png` loads
+- [ ] **Splash image exists**: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png` loads
 - [ ] **Frames work**: Test Frame URLs render meta tags
 - [ ] **App loads**: `https://endaoment-mvp.vercel.app` opens and works
 - [ ] **Wallet connect works**: Test connecting wallet on Base mainnet
@@ -223,16 +223,16 @@ Clicks to open in full-screen Farcaster browser
 ## 🎨 Asset Requirements
 
 ### Logo/Icon
-- **Format**: SVG, PNG, or JPG
+- **Format**: PNG
 - **Size**: 192x192px or 512x512px (square)
-- **Style**: Simple, recognizable
-- **Current**: `/logo.svg`
+- **Style**: Simple, recognizable blue logo with "DAO" highlighted
+- **Current**: `/logo/endaoment-logo.png`
 
 ### Splash Image
-- **Format**: JPG or PNG
+- **Format**: PNG
 - **Size**: 1200x630px (og:image size)
 - **Use**: Shown while app loads
-- **Current**: `/thumbnail.jpg`
+- **Current**: `/logo/endaoment-logo.png`
 
 ### Screenshots (Recommended)
 Take 3-5 screenshots showing:

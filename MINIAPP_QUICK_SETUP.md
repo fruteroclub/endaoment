@@ -51,8 +51,8 @@ yarn info:base
 - Manifest: `https://endaoment-mvp.vercel.app/api/miniapp-manifest`
 
 **Assets:**
-- Logo: `https://endaoment-mvp.vercel.app/logo.svg`
-- Splash: `https://endaoment-mvp.vercel.app/thumbnail.jpg`
+- Logo: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png`
+- Splash: `https://endaoment-mvp.vercel.app/logo/endaoment-logo.png`
 
 **Contracts:**
 - Network: Base Mainnet
