@@ -49,7 +49,7 @@ export default function DashboardPage() {
   });
 
   // Calculate user stats
-  const formattedShares = userShares ? Number(formatUnits(userShares, 18)) : 0;
+  const formattedShares = userShares ? Number(formatUnits(userShares, 6)) : 0;
   const formattedAssets = userAssets ? Number(formatUnits(userAssets, 6)) : 0;
   const votingPower =
     userShares && totalShares && Number(totalShares) > 0 ? (Number(userShares) / Number(totalShares)) * 100 : 0;
@@ -118,7 +118,7 @@ export default function DashboardPage() {
                 <div className="stat">
                   <div className="stat-title">Your Yield</div>
                   <div className="stat-value text-secondary">${userPersonalYield.toFixed(2)}</div>
-                  <div className="stat-desc">{isWhale ? "Whale (10%)" : "Retail (15%)"} of vault yield</div>
+                  <div className="stat-desc">{isWhale ? "Whale earns 10%" : "Retail earns 15%"} of vault yield</div>
                 </div>
               </div>
               <div className="card-actions justify-end mt-4">
@@ -141,7 +141,7 @@ export default function DashboardPage() {
         <div className="stat">
           <div className="stat-title">Your Yield Share</div>
           <div className="stat-value text-secondary">${userStats.yieldGenerated.toFixed(2)}</div>
-          <div className="stat-desc">{isWhale ? "10% whale" : "15% retail"} × your vault share</div>
+          <div className="stat-desc">You earn {isWhale ? "10%" : "15%"} of vault yield</div>
         </div>
         <div className="stat">
           <div className="stat-title">Students Supported</div>
@@ -169,7 +169,7 @@ export default function DashboardPage() {
                 <tbody>
                   {depositEvents.map((event, idx) => {
                     const amount = Number(formatUnits(event.args.assets || 0n, 6));
-                    const shares = Number(formatUnits(event.args.shares || 0n, 18));
+                    const shares = Number(formatUnits(event.args.shares || 0n, 6));
                     return (
                       <tr key={`${event.transactionHash}-${idx}`}>
                         <td>{event.blockNumber?.toString()}</td>

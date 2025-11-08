@@ -215,10 +215,10 @@ export default function AllocatePage() {
         <div>
           <div className="font-bold">💼 Allocating from: EndaomentVault</div>
           <div className="text-sm">
-            Your voting power: {Number(formatUnits(userShares || 0n, 18)).toFixed(2)} shares ({votingPower.toFixed(2)}%)
+            Your voting power: {Number(formatUnits(userShares || 0n, 6)).toFixed(2)} shares ({votingPower.toFixed(2)}%)
           </div>
           <div className="text-sm mt-1">
-            Donor type: {isWhale ? "🐋 Whale (10% yield share)" : "💰 Retail (15% yield share)"}
+            Donor type: {isWhale ? "🐋 Whale (earns 10% of vault yield)" : "💰 Retail (earns 15% of vault yield)"}
           </div>
         </div>
       </div>
