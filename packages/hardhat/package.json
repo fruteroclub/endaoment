@@ -11,15 +11,22 @@
     "clean": "hardhat clean",
     "compile": "hardhat compile",
     "deploy": "ts-node scripts/runHardhatDeployWithPK.ts",
+    "deploy:baseSepolia": "ts-node scripts/runHardhatDeployWithPK.ts --network baseSepolia",
+    "deploy:localhost": "ts-node scripts/runHardhatDeployWithPK.ts --network localhost",
     "flatten": "hardhat flatten",
     "fork": "MAINNET_FORKING_ENABLED=true hardhat node --network hardhat --no-deploy",
     "format": "prettier --write './**/*.(ts|sol)'",
     "generate": "yarn account:generate",
     "hardhat-verify": "hardhat verify",
+    "info": "hardhat run scripts/showDeploymentInfo.ts",
+    "info:baseSepolia": "hardhat run scripts/showDeploymentInfo.ts --network baseSepolia",
     "lint": "eslint",
     "lint-staged": "eslint",
+    "mint:usdc": "hardhat run scripts/mintTestUSDC.ts",
+    "mint:usdc:baseSepolia": "hardhat run scripts/mintTestUSDC.ts --network baseSepolia",
     "test": "REPORT_GAS=true hardhat test --network hardhat",
-    "verify": "hardhat etherscan-verify"
+    "verify": "hardhat etherscan-verify",
+    "verify:baseSepolia": "hardhat etherscan-verify --network baseSepolia"
   },
   "dependencies": {
     "@inquirer/password": "^4.0.2",
