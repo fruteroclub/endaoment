@@ -14,7 +14,7 @@ Design a philanthropic flow for "whale" donors who want to maximize impact by cr
 ### 1. Two-Tier Model Design
 **Problem**: Individual philanthropy has limited reach.
 **Solution**: Whales act as "lead investors" creating vaults, retail donors join as co-investors.
-**Outcome**: 10x leverage potential (whale 10k + retail 90k = 100k vault).
+**Outcome**: 5-10x leverage potential (whale 1000 + retail 4000-9000 = 5-10k vault).
 
 ### 2. Incentive Structures
 
@@ -56,8 +56,8 @@ voting_power = sqrt(vault_shares) × governance_token_multiplier
 
 ### 4. Vault Lifecycle
 
-1. **Creation**: Whale deposits 10k+ USDC → vault NFT minted
-2. **Fundraising**: Retail joins with 100+ USDC → receives shares
+1. **Creation**: Whale deposits 1000+ USDC → vault NFT minted
+2. **Fundraising**: Retail joins with 10+ USDC → receives shares
 3. **Yield Generation**: Capital deployed to Aave/Morpho
 4. **Allocation**: Monthly voting on student funding (quadratic)
 5. **Distribution**: Yield to students, rewards to vault members
@@ -99,9 +99,9 @@ student_allocation = remaining 75% via quadratic funding
 **Rationale**: Amplifies smaller vaults, prevents whale dominance
 
 ### Decision 3: Whale Minimum Capital
-**Options**: 5k, 10k, 25k, 50k USDC
-**Choice**: 10k USDC
-**Rationale**: Significant enough for impact, accessible for many philanthropists
+**Options**: 500, 1000, 2500, 5000 USDC
+**Choice**: 1000 USDC
+**Rationale**: Hackathon-appropriate scale, demonstrates model without requiring significant capital
 
 ### Decision 4: Governance Scope
 **Options**: Full DAO vs limited vault governance
@@ -150,7 +150,7 @@ student_allocation = remaining 75% via quadratic funding
 
 7. **Performance Bonuses**: Should whales earn bonuses for exceeding target APY, or just base allocation?
 
-8. **Retail Minimums**: Is 100 USDC the right minimum for retail participation?
+8. **Retail Minimums**: Is 10 USDC the right minimum for retail participation?
 
 ## Next Steps
 

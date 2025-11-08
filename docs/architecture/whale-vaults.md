@@ -18,8 +18,8 @@ Two-tier philanthropic model enabling "whale" philanthropists to create yield-ge
 
 #### 1. Vault System (ERC-4626)
 - **Vault Contract**: Standard ERC-4626 tokenized vault
-- **Whale Role**: Creator who deposits 10k+ USDC minimum
-- **Retail Role**: Co-investor who deposits 100+ USDC minimum
+- **Whale Role**: Creator who deposits 1000+ USDC minimum
+- **Retail Role**: Co-investor who deposits 10+ USDC minimum
 - **Shares**: Proportional ownership of vault capital
 - **Yield Strategy**: Automated deployment to Aave, Morpho, other protocols
 
@@ -50,14 +50,14 @@ voting_power = sqrt(vault_shares) × governance_token_multiplier
 #### 3. Vault Lifecycle
 
 **Phase 1: Creation**
-- Whale deposits minimum capital (10k+ USDC)
+- Whale deposits minimum capital (1000+ USDC)
 - Vault NFT minted (represents vault ownership)
 - Listed in public "Vaults" marketplace
 - Whale sets parameters (target APY, strategy risk level)
 
 **Phase 2: Fundraising**
 - Retail donors browse vault marketplace
-- Join vault with smaller amounts (100+ USDC)
+- Join vault with smaller amounts (10+ USDC)
 - Receive vault shares (ERC-4626 tokens)
 - Earn initial governance tokens
 
@@ -110,7 +110,7 @@ student_allocation = total_yield - whale_reward - retail_reward_pool
 
 ### Whale Incentives
 1. **Financial**: 10-20% yield premium + performance bonuses
-2. **Impact**: Multiply giving through retail co-investment (10x leverage potential)
+2. **Impact**: Multiply giving through retail co-investment (5-10x leverage potential)
 3. **Status**: Vault NFT ownership, recognition in platform
 4. **Network**: Access to other whales, student networking events
 5. **Control**: Set vault strategy, influence allocation
