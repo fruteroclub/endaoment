@@ -22,15 +22,14 @@ export async function GET() {
       splashBackgroundColor: "#FFFFFF",
       subtitle: "Fund students via DeFi yield",
       description:
-        "Endaoment connects institutional donors with students through an innovative DeFi yield mechanism. Whales deposit stablecoins, and generated yield automatically funds student education.",
+        "Deposit USDC into yield vaults to fund Latin American students. Generated yield is democratically allocated on-chain. Transparent, sustainable education funding.",
       screenshotUrls: [],
       primaryCategory: "finance",
       tags: ["defi", "education", "yield", "social-impact", "dao"],
       heroImageUrl: `${baseUrl}/logo/endaoment-logo.png`,
       tagline: "Fund education with yield",
-      ogTitle: "Endaoment - Fund Students Through DeFi Yield",
-      ogDescription:
-        "Connect institutional donors with students through DeFi yield. Sustainable funding for education powered by blockchain.",
+      ogTitle: "Endaoment: Fund Education",
+      ogDescription: "Support students by creating yield-generating vaults on Base. DeFi-powered education funding.",
       ogImageUrl: `${baseUrl}/logo/endaoment-logo.png`,
       noindex: false,
     },
