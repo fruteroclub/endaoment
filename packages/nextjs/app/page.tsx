@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { StudentCard } from "~~/components/miniapp/StudentCard";
-import { CURRENT_EPOCH, PLATFORM_STATS } from "~~/data/constants";
+import { PLATFORM_STATS } from "~~/data/constants";
 import { STUDENTS } from "~~/data/students";
 
 const Home: NextPage = () => {
@@ -40,14 +40,12 @@ const Home: NextPage = () => {
             <div className="flex gap-4 justify-center mt-8">
               {connectedAddress ? (
                 <>
-                  <Link href="/dashboard">
-                    <button className="btn btn-primary btn-lg">My Dashboard</button>
+                  <Link href="/vaults">
+                    <button className="btn btn-primary btn-lg">🏦 Explore Vaults</button>
                   </Link>
-                  {CURRENT_EPOCH.isVotingOpen && (
-                    <Link href="/allocate">
-                      <button className="btn btn-secondary btn-lg">Allocate Yield</button>
-                    </Link>
-                  )}
+                  <Link href="/dashboard">
+                    <button className="btn btn-outline btn-lg">My Dashboard</button>
+                  </Link>
                 </>
               ) : (
                 <button className="btn btn-primary btn-lg">Connect Wallet to Start</button>
@@ -57,34 +55,31 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      {/* Epoch Banner */}
-      {CURRENT_EPOCH.isVotingOpen && (
-        <div className="alert alert-info mx-4 my-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="stroke-current shrink-0 w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <span>
-            <strong>Epoch {CURRENT_EPOCH.id} voting is open!</strong> Allocate your $
-            {CURRENT_EPOCH.totalYield.toLocaleString()} in yield to students until{" "}
-            {CURRENT_EPOCH.votingEndDate.toLocaleDateString()}.
-          </span>
-          <div>
-            <Link href="/allocate">
-              <button className="btn btn-sm btn-primary">Allocate Now</button>
-            </Link>
-          </div>
+      {/* Vault Intro Banner */}
+      <div className="alert alert-success mx-4 my-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          className="stroke-current shrink-0 w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span>
+          <strong>🚀 New: Whale Vaults!</strong> Join yield-generating vaults created by major donors, pool your
+          resources, and vote together on student funding.
+        </span>
+        <div>
+          <Link href="/vaults">
+            <button className="btn btn-sm btn-primary">Explore Vaults</button>
+          </Link>
         </div>
-      )}
+      </div>
 
       {/* Main Content: Student Grid */}
       <div className="container mx-auto px-4 py-8">
@@ -159,14 +154,22 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body items-center text-center">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="card-title">1. Donate</h3>
+              <div className="text-4xl mb-4">🏦</div>
+              <h3 className="card-title">1. Join a Vault</h3>
+              <p>Explore vaults created by whale donors. Deposit as little as $10 USDC to join and earn yield.</p>
+            </div>
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body items-center text-center">
+              <div className="text-4xl mb-4">📈</div>
+              <h3 className="card-title">2. Earn Yield</h3>
               <p>
-                Deposit USDC or ETH. Your principal stays safe in DeFi vaults, earning yield through Aave, Morpho, and
-                other strategies.
+                Your funds generate yield through DeFi strategies (Aave). Whales earn 10%, retail donors earn 15%,
+                students get 75%.
               </p>
             </div>
           </div>
@@ -174,22 +177,16 @@ const Home: NextPage = () => {
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body items-center text-center">
               <div className="text-4xl mb-4">🗳️</div>
-              <h3 className="card-title">2. Allocate</h3>
-              <p>
-                Every 30 days, vote to allocate your earned yield to students. Quadratic funding amplifies smaller
-                donations for fairness.
-              </p>
+              <h3 className="card-title">3. Vote Together</h3>
+              <p>Every 30 days, allocate your vault&apos;s yield to students. Pool your voting power with others.</p>
             </div>
           </div>
 
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body items-center text-center">
               <div className="text-4xl mb-4">🎓</div>
-              <h3 className="card-title">3. Impact</h3>
-              <p>
-                Students receive funding for research, equipment, and courses. Track their progress through papers,
-                presentations, and more.
-              </p>
+              <h3 className="card-title">4. Fund Students</h3>
+              <p>Students receive funding for research and education. Track their progress and see your impact.</p>
             </div>
           </div>
         </div>
@@ -201,8 +198,19 @@ const Home: NextPage = () => {
             <p className="mb-6">
               Join {PLATFORM_STATS.activeDonors} donors supporting the next generation of LATAM leaders
             </p>
-            <div className="card-actions">
-              <button className="btn btn-neutral btn-lg">Connect Wallet to Start</button>
+            <div className="card-actions gap-4">
+              {connectedAddress ? (
+                <>
+                  <Link href="/vaults">
+                    <button className="btn btn-neutral btn-lg">🏦 Explore Vaults</button>
+                  </Link>
+                  <Link href="/vault/create">
+                    <button className="btn btn-outline btn-neutral btn-lg">Create Vault (Whales)</button>
+                  </Link>
+                </>
+              ) : (
+                <button className="btn btn-neutral btn-lg">Connect Wallet to Start</button>
+              )}
             </div>
           </div>
         </div>
