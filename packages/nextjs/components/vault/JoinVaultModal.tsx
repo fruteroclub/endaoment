@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { parseUnits } from "viem";
 import { useAccount } from "wagmi";
-import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
+import { useDeployedContractInfo, useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { Vault } from "~~/types/vault";
 
 interface JoinVaultModalProps {
@@ -19,6 +19,10 @@ export function JoinVaultModal({ vault, onClose }: JoinVaultModalProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [txStatus, setTxStatus] = useState<"idle" | "approving" | "depositing">("idle");
 
+  // Get vault contract address dynamically
+  const { data: vaultInfo } = useDeployedContractInfo("EndaomentVault");
+  const vaultAddress = vaultInfo?.address;
+
   // Read user's USDC balance
   const { data: usdcBalance } = useScaffoldReadContract({
     contractName: "MockUSDC",
@@ -30,14 +34,14 @@ export function JoinVaultModal({ vault, onClose }: JoinVaultModalProps) {
   const { data: currentAllowance } = useScaffoldReadContract({
     contractName: "MockUSDC",
     functionName: "allowance",
-    args: [address, "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82" as `0x${string}`],
+    args: [address, vaultAddress],
   });
 
   const { writeContractAsync: approveUSDC } = useScaffoldWriteContract("MockUSDC");
   const { writeContractAsync: depositToVault } = useScaffoldWriteContract("EndaomentVault");
 
   const handleJoin = async () => {
-    if (!address) return;
+    if (!address || !vaultAddress) return;
 
     setIsLoading(true);
     const depositAmount = parseUnits(amount.toString(), 6);
@@ -49,7 +53,7 @@ export function JoinVaultModal({ vault, onClose }: JoinVaultModalProps) {
         setTxStatus("approving");
         await approveUSDC({
           functionName: "approve",
-          args: ["0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82" as `0x${string}`, depositAmount],
+          args: [vaultAddress, depositAmount],
         });
       }
 
@@ -138,7 +142,7 @@ export function JoinVaultModal({ vault, onClose }: JoinVaultModalProps) {
           <button
             className={`btn btn-primary`}
             onClick={handleJoin}
-            disabled={isLoading || amount < 10 || !address || formattedBalance < amount}
+            disabled={isLoading || amount < 10 || !address || !vaultAddress || formattedBalance < amount}
           >
             {isLoading ? (
               <>
