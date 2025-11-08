@@ -1,10 +1,10 @@
 # Endaoment Protocol - Deployment Information
 
-## Network: base (Chain ID: 8453)
+## Network: arbitrumSepolia (Chain ID: 421614)
 
-**Deployment Date**: 2025-11-08T09:08:03.107Z  
+**Deployment Date**: 2025-11-08T10:08:40.522Z  
 **Deployer Address**: `0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205`  
-**Block Explorer**: https://basescan.org
+**Block Explorer**: https://etherscan.io
 
 ---
 
@@ -12,10 +12,10 @@
 
 | Contract | Address | Explorer Link |
 |----------|---------|---------------|
-| **MockUSDC** | `0xF275FB7aF26F08f5053611DAE56570304C4A22fF` | [View on Explorer](https://basescan.org/address/0xF275FB7aF26F08f5053611DAE56570304C4A22fF) |
-| **StudentRegistry** | `0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36` | [View on Explorer](https://basescan.org/address/0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36) |
-| **AllocationManager** | `0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a` | [View on Explorer](https://basescan.org/address/0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a) |
-| **EndaomentVault** | `0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09` | [View on Explorer](https://basescan.org/address/0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09) |
+| **MockUSDC** | `0xF275FB7aF26F08f5053611DAE56570304C4A22fF` | [View on Explorer](https://etherscan.io/address/0xF275FB7aF26F08f5053611DAE56570304C4A22fF) |
+| **StudentRegistry** | `0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36` | [View on Explorer](https://etherscan.io/address/0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36) |
+| **AllocationManager** | `0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a` | [View on Explorer](https://etherscan.io/address/0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a) |
+| **EndaomentVault** | `0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09` | [View on Explorer](https://etherscan.io/address/0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09) |
 
 ---
 
@@ -38,8 +38,8 @@
 ### Epoch Settings
 - **Current Epoch ID**: 0
 - **Epoch Duration**: 2592000 seconds (30 days)
-- **Epoch Start**: Sat, 08 Nov 2025 09:07:05 GMT
-- **Epoch End**: Mon, 08 Dec 2025 09:07:05 GMT
+- **Epoch Start**: Sat, 08 Nov 2025 10:08:27 GMT
+- **Epoch End**: Mon, 08 Dec 2025 10:08:27 GMT
 
 ### Yield Split (Basis Points)
 | Recipient | Share | Percentage |
@@ -112,7 +112,7 @@
 ```bash
 # The deployer already has 1000000.0 USDC
 # To mint more USDC to your test wallet:
-npx hardhat run scripts/mintTestUSDC.ts --network base
+npx hardhat run scripts/mintTestUSDC.ts --network arbitrumSepolia
 ```
 
 ### 2. Approve USDC for Vault
@@ -188,16 +188,16 @@ console.log(`Student received ${ethers.formatUnits(funding, 6)} USDC total`);
 ### Verify all contracts on block explorer:
 ```bash
 # Verify MockUSDC
-npx hardhat verify --network base 0xF275FB7aF26F08f5053611DAE56570304C4A22fF
+npx hardhat verify --network arbitrumSepolia 0xF275FB7aF26F08f5053611DAE56570304C4A22fF
 
 # Verify StudentRegistry
-npx hardhat verify --network base 0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36
+npx hardhat verify --network arbitrumSepolia 0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36
 
 # Verify AllocationManager
-npx hardhat verify --network base 0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36"
+npx hardhat verify --network arbitrumSepolia 0x7A03a351Ae970Bd0b810e09f25C1CC86F29aC68a "0xf6a5E6e0D9077dD34A7EB1F35BB724f278725c36"
 
 # Verify EndaomentVault
-npx hardhat verify --network base 0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09 "0xF275FB7aF26F08f5053611DAE56570304C4A22fF" "Endaoment Education Vault" "EDVAULT" "0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205"
+npx hardhat verify --network arbitrumSepolia 0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09 "0xF275FB7aF26F08f5053611DAE56570304C4A22fF" "Endaoment Education Vault" "EDVAULT" "0xcd95569742Ec931BB4879ccC7EAA9f5BD9d2E205"
 ```
 
 ---
@@ -226,4 +226,4 @@ npx hardhat verify --network base 0x253AEc843242a5fbB44Ed53E89e08Eafc15bDC09 "0x
 ---
 
 *Generated automatically by Endaoment deployment script*  
-*Last Updated*: 2025-11-08T09:08:24.838Z
+*Last Updated*: 2025-11-08T10:08:41.970Z
